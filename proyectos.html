@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proyectos | Carbonell Soluciones</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#ffcc00",
+            "background-light": "#f8f8f5",
+            "background-dark": "#121212",
+            "neutral-dark": "#1a1a1a",
+            "accent-gray": "#2d2d2d"
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Manrope', sans-serif; scroll-behavior: smooth; }
+    .bg-grid-pattern {
+      background-image: radial-gradient(circle, #ffcc0022 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .proyecto-panel .proyecto-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+    .proyecto-panel.open .proyecto-content { max-height: 500px; transition: max-height 0.5s ease-in; }
+    .proyecto-panel.open .proyecto-chevron { transform: rotate(180deg); }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-neutral-dark dark:text-white transition-colors duration-300">
+
+  <header class="sticky top-0 z-50 w-full bg-background-dark border-b border-white/10 px-6 lg:px-20 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/icon-carbonell-soluciones.png" alt="Carbonell Soluciones" class="size-8 object-contain rounded"/>
+      <h1 class="text-white text-xl font-extrabold tracking-tighter uppercase">Carbonell<span class="text-primary">Soluciones</span></h1>
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="servicios.html">SERVICIOS</a>
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="labor.html">LABOR</a>
+      <a class="text-primary text-sm font-semibold" href="proyectos.html">PROYECTOS</a>
+      <a class="px-5 py-2 bg-primary text-black text-sm font-bold rounded-lg hover:bg-white transition-all" href="consultoria-ia.html">CONSULTORÍA IA</a>
+    </nav>
+    <button class="md:hidden text-white" type="button" aria-label="Menú">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="relative py-16 px-6 overflow-hidden bg-white dark:bg-neutral-dark">
+      <div class="absolute inset-0 bg-grid-pattern opacity-20" style="opacity: 0.1;"></div>
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <span class="inline-block text-primary font-bold text-xs uppercase tracking-widest mb-4">Portafolio</span>
+        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+          Proyectos que <span class="text-primary">transforman</span>
+        </h2>
+        <p class="text-lg text-neutral-600 dark:text-white/70">Infraestructura, educación, ambiente y comunidad. Explora cada uno.</p>
+      </div>
+    </section>
+
+    <section class="py-12 px-6 bg-background-light dark:bg-background-dark">
+      <div class="max-w-7xl mx-auto space-y-3">
+        <div class="proyecto-panel rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark overflow-hidden transition-all hover:border-primary/40" data-proyecto>
+          <button type="button" class="w-full flex items-center gap-4 p-5 text-left font-semibold text-neutral-800 dark:text-white">
+            <span class="flex shrink-0 size-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center text-lg font-black">1</span>
+            <span class="flex-1">Cartilla Cátedra de Soledad – Identidad territorial en educación inicial</span>
+            <span class="proyecto-chevron material-symbols-outlined text-primary transition-transform">expand_more</span>
+          </button>
+          <div class="proyecto-content">
+            <div class="px-5 pb-5 pl-[4.5rem] md:pl-20">
+              <p class="text-neutral-600 dark:text-white/70 leading-relaxed text-sm md:text-base">
+                Fortalecimiento de la identidad territorial de la educación inicial y preescolar por medio de estrategia académica denominada: Cartilla cátedra de Soledad.
+              </p>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold">Soledad, Atlántico</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proyecto-panel rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark overflow-hidden transition-all hover:border-primary/40" data-proyecto>
+          <button type="button" class="w-full flex items-center gap-4 p-5 text-left font-semibold text-neutral-800 dark:text-white">
+            <span class="flex shrink-0 size-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center text-lg font-black">2</span>
+            <span class="flex-1">Comedor escolar – Cabica, Soledad</span>
+            <span class="proyecto-chevron material-symbols-outlined text-primary transition-transform">expand_more</span>
+          </button>
+          <div class="proyecto-content">
+            <div class="px-5 pb-5 pl-[4.5rem] md:pl-20">
+              <p class="text-neutral-600 dark:text-white/70 leading-relaxed text-sm md:text-base">
+                Construcción y dotación de comedor escolar, cocina y bodega en la comunidad rural de Cabica en el municipio de Soledad del departamento del Atlántico.
+              </p>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold">Soledad, Atlántico</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proyecto-panel rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark overflow-hidden transition-all hover:border-primary/40" data-proyecto>
+          <button type="button" class="w-full flex items-center gap-4 p-5 text-left font-semibold text-neutral-800 dark:text-white">
+            <span class="flex shrink-0 size-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center text-lg font-black">3</span>
+            <span class="flex-1">Plataforma CAI – Control académico y administrativo integral</span>
+            <span class="proyecto-chevron material-symbols-outlined text-primary transition-transform">expand_more</span>
+          </button>
+          <div class="proyecto-content">
+            <div class="px-5 pb-5 pl-[4.5rem] md:pl-20">
+              <p class="text-neutral-600 dark:text-white/70 leading-relaxed text-sm md:text-base">
+                Prestación de servicios de computación, uso y almacenamiento en la nube por medio del suministro de la plataforma CAI (sistema de control académico y administrativo integral unificado), con la finalidad de alcanzar la optimización de procesos educativos y promoción del crecimiento de las Instituciones de Educación Inicial, Básica y Media del territorio nacional.
+              </p>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold">Territorio nacional</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proyecto-panel rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark overflow-hidden transition-all hover:border-primary/40" data-proyecto>
+          <button type="button" class="w-full flex items-center gap-4 p-5 text-left font-semibold text-neutral-800 dark:text-white">
+            <span class="flex shrink-0 size-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center text-lg font-black">4</span>
+            <span class="flex-1">Primer ecoparque turístico – Red de ecoparques Soledad</span>
+            <span class="proyecto-chevron material-symbols-outlined text-primary transition-transform">expand_more</span>
+          </button>
+          <div class="proyecto-content">
+            <div class="px-5 pb-5 pl-[4.5rem] md:pl-20">
+              <p class="text-neutral-600 dark:text-white/70 leading-relaxed text-sm md:text-base">
+                Construcción del primer ecoparque turístico de la red de ecoparques del municipio de Soledad, Atlántico.
+              </p>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold">Soledad, Atlántico</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proyecto-panel rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark overflow-hidden transition-all hover:border-primary/40" data-proyecto>
+          <button type="button" class="w-full flex items-center gap-4 p-5 text-left font-semibold text-neutral-800 dark:text-white">
+            <span class="flex shrink-0 size-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center text-lg font-black">5</span>
+            <span class="flex-1">Aves de postura – Seguridad alimentaria, San Antonio de Palmito</span>
+            <span class="proyecto-chevron material-symbols-outlined text-primary transition-transform">expand_more</span>
+          </button>
+          <div class="proyecto-content">
+            <div class="px-5 pb-5 pl-[4.5rem] md:pl-20">
+              <p class="text-neutral-600 dark:text-white/70 leading-relaxed text-sm md:text-base">
+                Inversiones: desarrollo de la actividad productiva de aves de postura como estrategia de seguridad alimentaria para comunidades indígenas en el municipio de San Antonio de Palmito del Departamento de Sucre.
+              </p>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold">San Antonio de Palmito, Sucre</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proyecto-panel rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark overflow-hidden transition-all hover:border-primary/40" data-proyecto>
+          <button type="button" class="w-full flex items-center gap-4 p-5 text-left font-semibold text-neutral-800 dark:text-white">
+            <span class="flex shrink-0 size-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center text-lg font-black">6</span>
+            <span class="flex-1">Aves de postura – Familias indígenas, Sampués</span>
+            <span class="proyecto-chevron material-symbols-outlined text-primary transition-transform">expand_more</span>
+          </button>
+          <div class="proyecto-content">
+            <div class="px-5 pb-5 pl-[4.5rem] md:pl-20">
+              <p class="text-neutral-600 dark:text-white/70 leading-relaxed text-sm md:text-base">
+                Producción: desarrollo de la actividad productiva de aves de postura como estrategia de seguridad alimentaria para familias indígenas en el municipio de Sampués del Departamento de Sucre.
+              </p>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold">Sampués, Sucre</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proyecto-panel rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark overflow-hidden transition-all hover:border-primary/40" data-proyecto>
+          <button type="button" class="w-full flex items-center gap-4 p-5 text-left font-semibold text-neutral-800 dark:text-white">
+            <span class="flex shrink-0 size-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center text-lg font-black">7</span>
+            <span class="flex-1">Aceites de cocina usados (ACU) – Resolución 316 de 2018</span>
+            <span class="proyecto-chevron material-symbols-outlined text-primary transition-transform">expand_more</span>
+          </button>
+          <div class="proyecto-content">
+            <div class="px-5 pb-5 pl-[4.5rem] md:pl-20">
+              <p class="text-neutral-600 dark:text-white/70 leading-relaxed text-sm md:text-base">
+                Servicio de recolección, tratamiento, disposición y aprovechamiento de aceites de cocina usados (ACU) a nivel industrial y gastronómico, amparados en la Resolución 316 de 2018 del Ministerio de Ambiente y Desarrollo Sostenible, para todo el territorio nacional.
+              </p>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold">Soledad / Nacional</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proyecto-panel rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark overflow-hidden transition-all hover:border-primary/40" data-proyecto>
+          <button type="button" class="w-full flex items-center gap-4 p-5 text-left font-semibold text-neutral-800 dark:text-white">
+            <span class="flex shrink-0 size-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center text-lg font-black">8</span>
+            <span class="flex-1">Basura Cero – Emprendimiento ambiental y recicladores, Atlántico</span>
+            <span class="proyecto-chevron material-symbols-outlined text-primary transition-transform">expand_more</span>
+          </button>
+          <div class="proyecto-content">
+            <div class="px-5 pb-5 pl-[4.5rem] md:pl-20">
+              <p class="text-neutral-600 dark:text-white/70 leading-relaxed text-sm md:text-base">
+                Implementación de estrategias innovadoras de emprendimiento ambiental en el marco de la política pública “Basura Cero”, en el aprovechamiento integral de residuos sólidos urbanos y fortalecimiento de la economía popular con enfoque diferencial e inclusivo dirigido a poblaciones vulnerables de comunidades recicladoras y organizaciones ambientalistas en el Departamento del Atlántico, municipio de Puerto Colombia.
+              </p>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold">Puerto Colombia, Atlántico</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proyecto-panel rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark overflow-hidden transition-all hover:border-primary/40" data-proyecto>
+          <button type="button" class="w-full flex items-center gap-4 p-5 text-left font-semibold text-neutral-800 dark:text-white">
+            <span class="flex shrink-0 size-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center text-lg font-black">9</span>
+            <span class="flex-1">Zonas digitales de acceso público gratuito – Soledad</span>
+            <span class="proyecto-chevron material-symbols-outlined text-primary transition-transform">expand_more</span>
+          </button>
+          <div class="proyecto-content">
+            <div class="px-5 pb-5 pl-[4.5rem] md:pl-20">
+              <p class="text-neutral-600 dark:text-white/70 leading-relaxed text-sm md:text-base">
+                Implementación de zonas digitales de acceso público gratuito en Soledad.
+              </p>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold">Soledad, Atlántico</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proyecto-panel rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark overflow-hidden transition-all hover:border-primary/40" data-proyecto>
+          <button type="button" class="w-full flex items-center gap-4 p-5 text-left font-semibold text-neutral-800 dark:text-white">
+            <span class="flex shrink-0 size-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center text-lg font-black">10</span>
+            <span class="flex-1">Parque barrio Los Robles – Soledad</span>
+            <span class="proyecto-chevron material-symbols-outlined text-primary transition-transform">expand_more</span>
+          </button>
+          <div class="proyecto-content">
+            <div class="px-5 pb-5 pl-[4.5rem] md:pl-20">
+              <p class="text-neutral-600 dark:text-white/70 leading-relaxed text-sm md:text-base">
+                Construcción de un parque para disfrute de la comunidad del barrio Los Robles del municipio de Soledad, Atlántico.
+              </p>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold">Soledad, Atlántico</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proyecto-panel rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark overflow-hidden transition-all hover:border-primary/40" data-proyecto>
+          <button type="button" class="w-full flex items-center gap-4 p-5 text-left font-semibold text-neutral-800 dark:text-white">
+            <span class="flex shrink-0 size-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center text-lg font-black">11</span>
+            <span class="flex-1">Energía solar fotovoltaica – Mitigación cambio climático, Soledad</span>
+            <span class="proyecto-chevron material-symbols-outlined text-primary transition-transform">expand_more</span>
+          </button>
+          <div class="proyecto-content">
+            <div class="px-5 pb-5 pl-[4.5rem] md:pl-20">
+              <p class="text-neutral-600 dark:text-white/70 leading-relaxed text-sm md:text-base">
+                Implementación de estrategias con innovación tecnológica, sensibilización y capacitación en mitigación del cambio climático mediante la promoción del uso y aprovechamiento de la energía solar fotovoltaica en el municipio de Soledad, Atlántico.
+              </p>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold">Soledad, Atlántico</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proyecto-panel rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark overflow-hidden transition-all hover:border-primary/40" data-proyecto>
+          <button type="button" class="w-full flex items-center gap-4 p-5 text-left font-semibold text-neutral-800 dark:text-white">
+            <span class="flex shrink-0 size-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center text-lg font-black">12</span>
+            <span class="flex-1">Planta de Tratamiento de Aguas Residuales – Soledad</span>
+            <span class="proyecto-chevron material-symbols-outlined text-primary transition-transform">expand_more</span>
+          </button>
+          <div class="proyecto-content">
+            <div class="px-5 pb-5 pl-[4.5rem] md:pl-20">
+              <p class="text-neutral-600 dark:text-white/70 leading-relaxed text-sm md:text-base">
+                Construcción de la Planta de Tratamiento de Aguas Residuales del municipio de Soledad en el Departamento del Atlántico.
+              </p>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold">Soledad, Atlántico</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 px-6 bg-white dark:bg-neutral-dark text-center border-t border-neutral-200 dark:border-white/5">
+      <p class="text-neutral-600 dark:text-white/60 mb-6">¿Tienes un proyecto en mente?</p>
+      <a href="consultoria-ia.html" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors">
+        Consultoría IA
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+    </section>
+
+    <footer class="bg-background-dark text-white pt-24 pb-12 px-6" id="contacto">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-16 pb-16 border-b border-white/10">
+        <div class="space-y-6">
+          <div class="flex items-center gap-3">
+            <img src="assets/icon-carbonell-soluciones.png" alt="Carbonell Soluciones" class="size-8 object-contain rounded"/>
+            <h2 class="text-white text-xl font-extrabold tracking-tighter uppercase">Carbonell<span class="text-primary">Soluciones</span></h2>
+          </div>
+          <p class="text-white/40 text-sm leading-relaxed">
+            Consultoría de ingeniería de élite con sede en Atlántico, Colombia.
+          </p>
+          <div class="flex gap-4">
+            <a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" href="#"><span class="material-symbols-outlined text-xl">share</span></a>
+            <a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" href="#"><span class="material-symbols-outlined text-xl">account_circle</span></a>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-primary font-bold text-sm uppercase tracking-widest">Contacto</h4>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary">location_on</span>
+              <p class="text-white/60 text-sm">Cra. 41b #73b-82, Norte Centro Histórico, Barranquilla, Atlántico</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="material-symbols-outlined text-primary">mail</span>
+              <a class="text-white/60 text-sm hover:text-primary transition-colors" href="mailto:solucionescarbonell@gmail.com">solucionescarbonell@gmail.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-primary font-bold text-sm uppercase tracking-widest">Atención Inmediata</h4>
+          <a class="flex items-center justify-center gap-3 w-full py-4 bg-primary text-black font-extrabold rounded-lg hover:bg-white transition-all shadow-lg shadow-primary/20" href="https://wa.me/573014251319">
+            <span class="material-symbols-outlined">chat</span>
+            WHATSAPP: +57 301 425 13 19
+          </a>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-white/20">
+        <p>© 2024 Carbonell Soluciones. Todos los derechos reservados.</p>
+        <div class="flex gap-6">
+          <a class="hover:text-primary transition-colors" href="#">Términos</a>
+          <a class="hover:text-primary transition-colors" href="#">Privacidad</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <a class="fixed bottom-8 right-8 z-[100] group" href="https://wa.me/573014251319">
+    <div class="absolute -inset-2 bg-primary/30 blur rounded-full animate-pulse group-hover:bg-primary/50 transition-all"></div>
+    <div class="relative bg-primary size-14 rounded-full flex items-center justify-center text-black shadow-2xl group-hover:scale-110 transition-transform">
+      <span class="material-symbols-outlined text-3xl font-bold">chat</span>
+    </div>
+    <div class="absolute bottom-16 right-0 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-black/10">¿Cómo podemos ayudarte?</div>
+  </a>
+
+  <script>
+    (function () {
+      document.querySelectorAll('[data-proyecto]').forEach(function (panel) {
+        var btn = panel.querySelector('button');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          var isOpen = panel.classList.contains('open');
+          document.querySelectorAll('.proyecto-panel.open').forEach(function (p) {
+            if (p !== panel) p.classList.remove('open');
+          });
+          if (isOpen) panel.classList.remove('open');
+          else panel.classList.add('open');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

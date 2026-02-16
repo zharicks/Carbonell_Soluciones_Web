@@ -47,6 +47,7 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .logos-carousel-track { transition: transform 0.6s ease-in-out; }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-neutral-dark dark:text-white transition-colors duration-300">
@@ -58,9 +59,9 @@
       <h1 class="text-white text-xl font-extrabold tracking-tighter uppercase">Carbonell<span class="text-primary">Soluciones</span></h1>
     </div>
     <nav class="hidden md:flex items-center gap-8">
-      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="#servicios">SERVICIOS</a>
-      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="#liderazgo">LIDERAZGO</a>
-      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="#proyectos">PROYECTOS</a>
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="servicios.html">SERVICIOS</a>
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="labor.html">LABOR</a>
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="proyectos.html">PROYECTOS</a>
       <a class="px-5 py-2 bg-primary text-black text-sm font-bold rounded-lg hover:bg-white transition-all" href="consultoria-ia.html">CONSULTORÍA IA</a>
     </nav>
     <button class="md:hidden text-white">
@@ -93,7 +94,7 @@
               <div class="size-10 rounded-full border-2 border-background-dark bg-cover" data-alt="Team member profile photo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCbRJU5ELibIVhq6rgddJR8Htx-A3CjiG245AQNwSy6q3OuwnPKI5UftqPh_9GUrCl2LVisRbBVdFsnZD39KrxDwjZFpl3Pl3pC3PcUpUqnOaxRAyvpOZGVdLNG8JznRXZ8Sfu0pLLfGQqsdHkxeP8N9CrZHQK-ylxZnABvPbuREVCP5kOwqTtUME2j1o7chStgH_P-_NVNkr2kqCxDAxI0FtUIyqZBuWKX8LS1L5BsAxA0v333ainGHy0-W7v3lKkvCh42YT8XNPQ')"></div>
               <div class="size-10 rounded-full border-2 border-background-dark bg-cover" data-alt="Team member profile photo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDvN8A2cL0ulSon4aI88KBffu3JuKmWRW-lsIkwdxbuoxBXwGh1VLhbGu6vgjPvtxvPsF5lB_yNHxpEAsLhbnavWu8aC4EnLvt-eSYXxMRTMls3nKvibWgLSFd0rU-vAL3J1dlvDXl8gQdUSv6ZHvzUF1TU1BWKLNKETckSrzs8cUb7A83c_MqcCFO_FpmaJxxoph43CeXBYAfXnhggV6D-GZAibdwSptR99y5LvN5A3Cd-FpfuFZMSCrhCC9Zq5Nfbg9x--zHv8-4')"></div>
             </div>
-            <p class="text-sm font-medium text-neutral-400">Respaldado por 15+ años de experiencia técnica</p>
+            <p class="text-sm font-medium text-neutral-400">Respaldado por 20+ años de experiencia técnica</p>
           </div>
         </div>
         <!-- Widget Chat (placeholder n8n) -->
@@ -139,29 +140,66 @@
       </div>
     </section>
 
-    <!-- ========== CLIENTES / CONFIANZA ========== -->
-    <section class="py-12 bg-background-light border-y border-neutral-200">
-      <div class="max-w-7xl mx-auto px-6">
-        <p class="text-center text-[10px] font-bold text-neutral-400 uppercase tracking-[0.3em] mb-8">Empresas y entidades que confían en nuestra gestión</p>
-        <div class="flex flex-wrap justify-center items-center gap-12 lg:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-          <div class="flex items-center gap-2 font-black text-xl italic text-neutral-dark whitespace-nowrap">
-            <span class="material-symbols-outlined">school</span>
-            CENTRO CONOCIMIENTO
+    <!-- ========== CLIENTES / LOGOS – CARRUSEL AUTOMÁTICO ========== -->
+    <section class="py-14 bg-background-light border-y border-neutral-200" aria-label="Empresas y entidades que confían en nosotros">
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <p class="text-center text-[10px] font-bold text-neutral-400 uppercase tracking-[0.3em] mb-10">Empresas y entidades que confían en nuestra gestión</p>
+        <div class="overflow-hidden">
+          <div id="logos-carousel-track" class="logos-carousel-track flex" style="transform: translateX(0);">
+            <div class="logos-slide flex shrink-0 w-full justify-evenly items-center gap-16 md:gap-24 lg:gap-32 px-6 md:px-12">
+              <div class="h-20 md:h-28 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 flex items-center justify-center"><img src="assets/logos_clientes/logo_1.png" alt="Cliente 1" class="max-h-full w-auto object-contain"/></div>
+              <div class="h-20 md:h-28 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 flex items-center justify-center"><img src="assets/logos_clientes/logo_2.png" alt="Cliente 2" class="max-h-full w-auto object-contain"/></div>
+              <div class="h-20 md:h-28 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 flex items-center justify-center"><img src="assets/logos_clientes/logo_3.png" alt="Cliente 3" class="max-h-full w-auto object-contain"/></div>
+            </div>
+            <div class="logos-slide flex shrink-0 w-full justify-evenly items-center gap-16 md:gap-24 lg:gap-32 px-6 md:px-12">
+              <div class="h-20 md:h-28 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 flex items-center justify-center"><img src="assets/logos_clientes/logo_4.png" alt="Cliente 4" class="max-h-full w-auto object-contain"/></div>
+              <div class="h-20 md:h-28 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 flex items-center justify-center"><img src="assets/logos_clientes/logo_5.png" alt="Cliente 5" class="max-h-full w-auto object-contain"/></div>
+              <div class="h-20 md:h-28 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 flex items-center justify-center"><img src="assets/logos_clientes/logo_6.png" alt="Cliente 6" class="max-h-full w-auto object-contain"/></div>
+            </div>
+            <div class="logos-slide flex shrink-0 w-full justify-evenly items-center gap-16 md:gap-24 lg:gap-32 px-6 md:px-12">
+              <div class="h-20 md:h-28 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 flex items-center justify-center"><img src="assets/logos_clientes/logo_7.png" alt="Cliente 7" class="max-h-full w-auto object-contain"/></div>
+              <div class="h-20 md:h-28 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 flex items-center justify-center"><img src="assets/logos_clientes/logo_8.png" alt="Cliente 8" class="max-h-full w-auto object-contain"/></div>
+              <div class="h-20 md:h-28 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 flex items-center justify-center"><img src="assets/logos_clientes/logo_9.png" alt="Cliente 9" class="max-h-full w-auto object-contain"/></div>
+            </div>
+            <div class="logos-slide flex shrink-0 w-full justify-evenly items-center gap-16 md:gap-24 lg:gap-32 px-6 md:px-12">
+              <div class="h-20 md:h-28 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 flex items-center justify-center"><img src="assets/logos_clientes/logo_10.png" alt="Cliente 10" class="max-h-full w-auto object-contain"/></div>
+              <div class="h-20 md:h-28 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 flex items-center justify-center"><img src="assets/logos_clientes/logo_1.png" alt="Cliente 1" class="max-h-full w-auto object-contain"/></div>
+              <div class="h-20 md:h-28 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 flex items-center justify-center"><img src="assets/logos_clientes/logo_2.png" alt="Cliente 2" class="max-h-full w-auto object-contain"/></div>
+            </div>
           </div>
-          <div class="flex items-center gap-2 font-black text-xl italic text-neutral-dark whitespace-nowrap">
-            <span class="material-symbols-outlined">account_balance</span>
-            ALCALDÍA SOLEDAD
-          </div>
-          <div class="flex items-center gap-2 font-black text-xl italic text-neutral-dark whitespace-nowrap">
-            <span class="material-symbols-outlined">business</span>
-            CÁMARA COMERCIO
-          </div>
+        </div>
+        <div class="flex justify-center gap-2 mt-6">
+          <button type="button" class="logos-dot w-2.5 h-2.5 rounded-full bg-primary border-0" aria-label="Slide 1" data-index="0"></button>
+          <button type="button" class="logos-dot w-2.5 h-2.5 rounded-full bg-neutral-300 border-0" aria-label="Slide 2" data-index="1"></button>
+          <button type="button" class="logos-dot w-2.5 h-2.5 rounded-full bg-neutral-300 border-0" aria-label="Slide 3" data-index="2"></button>
+          <button type="button" class="logos-dot w-2.5 h-2.5 rounded-full bg-neutral-300 border-0" aria-label="Slide 4" data-index="3"></button>
         </div>
       </div>
     </section>
+    <script>
+      (function () {
+        var track = document.getElementById('logos-carousel-track');
+        var dots = document.querySelectorAll('.logos-dot');
+        if (!track || !dots.length) return;
+        var total = 4;
+        var index = 0;
+        function goTo(i) {
+          index = (i + total) % total;
+          track.style.transform = 'translateX(-' + index * 100 + '%)';
+          dots.forEach(function (d, j) {
+            d.classList.toggle('bg-primary', j === index);
+            d.classList.toggle('bg-neutral-300', j !== index);
+          });
+        }
+        dots.forEach(function (d, i) {
+          d.addEventListener('click', function () { goTo(i); });
+        });
+        setInterval(function () { goTo(index + 1); }, 4000);
+      })();
+    </script>
 
-    <!-- ========== LIDERAZGO ========== -->
-    <section class="py-24 px-6 bg-white dark:bg-neutral-dark" id="liderazgo">
+    <!-- ========== LABOR / PERFIL ========== -->
+    <section class="py-24 px-6 bg-white dark:bg-neutral-dark" id="labor">
       <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
         <div class="relative w-full lg:w-1/2">
           <div class="absolute -top-6 -left-6 size-32 border-t-4 border-l-4 border-primary"></div>
@@ -195,6 +233,30 @@
             VER TRAYECTORIA COMPLETA
             <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
           </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CÁTEDRA DE SOLEDAD – LANZAMIENTO ========== -->
+    <section class="py-24 px-6 bg-white dark:bg-neutral-dark border-y border-neutral-200 dark:border-white/5" aria-label="Cátedra de Soledad">
+      <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div class="w-full lg:w-1/2 space-y-6 order-2 lg:order-1">
+          <p class="text-primary font-black text-xs uppercase tracking-[0.2em]">Lanzamiento · Edición #1</p>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-neutral-900 dark:text-white">
+            Un legado para las nuevas generaciones de Soledad.
+          </h2>
+          <p class="text-lg text-neutral-600 dark:text-white/70 leading-relaxed">
+            Presentamos con orgullo la <strong class="text-neutral-900 dark:text-white">Cátedra de Soledad</strong>. Más que una cartilla: una herramienta de identidad para que los niños de Prejardín, Jardín y Transición se apropien de su historia, sus valores y su cultura.
+          </p>
+          <blockquote class="border-l-4 border-primary pl-6 py-2">
+            <p class="text-xl md:text-2xl font-semibold italic text-neutral-800 dark:text-white/90">Educar es transformar el presente para asegurar el futuro.</p>
+          </blockquote>
+          <p class="text-neutral-500 dark:text-white/50 text-sm pt-2">
+            Carbonell Soluciones — 20 años de trayectoria técnica y compromiso social.
+          </p>
+        </div>
+        <div class="w-full lg:w-1/2 flex justify-center lg:justify-end order-1 lg:order-2">
+          <img src="assets/cartilla.png" alt="Cátedra de Soledad - Cartilla Edición 1" class="w-full max-w-sm rounded-lg shadow-xl shadow-black/15 dark:shadow-black/30 object-cover"/>
         </div>
       </div>
     </section>
@@ -382,7 +444,7 @@
           <div class="space-y-4">
             <div class="flex items-start gap-4">
               <span class="material-symbols-outlined text-primary">location_on</span>
-              <p class="text-white/60 text-sm">Villa Linda Av. Murillo,<br/>Diagonal 64 #1B-67,<br/>Soledad, Atlántico</p>
+              <p class="text-white/60 text-sm">Cra. 41b #73b-82,<br/>Norte Centro Historico,<br/>Barranquilla, Atlántico</p>
             </div>
             <div class="flex items-center gap-4">
               <span class="material-symbols-outlined text-primary">mail</span>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Labor | Carbonell Soluciones</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#ffcc00",
+            "background-light": "#f8f8f5",
+            "background-dark": "#121212",
+            "neutral-dark": "#1a1a1a",
+            "accent-gray": "#2d2d2d"
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Manrope', sans-serif; scroll-behavior: smooth; }
+    .bg-grid-pattern {
+      background-image: radial-gradient(circle, #ffcc0022 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .carousel-container { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+    .carousel-container::-webkit-scrollbar { height: 6px; }
+    .carousel-container::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 3px; }
+    .carousel-container::-webkit-scrollbar-thumb { background: #ffcc00; border-radius: 3px; }
+    .carousel-slide { scroll-snap-align: start; scroll-snap-stop: always; flex: 0 0 100%; }
+    @media (min-width: 768px) {
+      .carousel-slide { flex: 0 0 50%; }
+      .carousel-container { scroll-snap-type: x mandatory; }
+    }
+    @media (min-width: 1024px) {
+      .carousel-slide { flex: 0 0 33.333%; }
+    }
+    .carousel-slide .carousel-img-wrap { transition: transform 0.35s ease; }
+    .carousel-slide:hover .carousel-img-wrap { transform: scale(1.02); }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-neutral-dark dark:text-white transition-colors duration-300">
+
+  <!-- ========== CABECERA ========== -->
+  <header class="sticky top-0 z-50 w-full bg-background-dark border-b border-white/10 px-6 lg:px-20 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/icon-carbonell-soluciones.png" alt="Carbonell Soluciones" class="size-8 object-contain rounded"/>
+      <h1 class="text-white text-xl font-extrabold tracking-tighter uppercase">Carbonell<span class="text-primary">Soluciones</span></h1>
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="servicios.html">SERVICIOS</a>
+      <a class="text-primary text-sm font-semibold" href="labor.html">LABOR</a>
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="proyectos.html">PROYECTOS</a>
+      <a class="px-5 py-2 bg-primary text-black text-sm font-bold rounded-lg hover:bg-white transition-all" href="consultoria-ia.html">CONSULTORÍA IA</a>
+    </nav>
+    <button class="md:hidden text-white" type="button" aria-label="Menú">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ========== HERO: LABOR ========== -->
+    <section class="relative py-20 px-6 overflow-hidden bg-white dark:bg-neutral-dark">
+      <div class="absolute inset-0 bg-grid-pattern opacity-20" style="opacity: 0.1;"></div>
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <span class="inline-block text-primary font-bold text-xs uppercase tracking-widest mb-4">Labor</span>
+        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+          La labor <span class="text-primary">transforma</span> proyectos y comunidades
+        </h2>
+        <p class="text-lg text-neutral-600 dark:text-white/70 leading-relaxed">
+          Creemos que un trabajo técnico y humano es la base para ejecutar proyectos con rigor, transferir conocimiento y mejorar los espacios donde viven las personas. Aquí compartimos parte de ese camino.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== TRANSFERENCIA DE CONOCIMIENTOS – CAROUSEL ========== -->
+    <section class="py-16 px-6 bg-neutral-50 dark:bg-neutral-900 border-y border-neutral-200 dark:border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">
+            Transferencia de conocimientos
+          </h2>
+          <p class="text-primary font-semibold text-sm uppercase tracking-widest">Gestión de proyectos y desarrollo comunitario</p>
+          <div class="h-1 w-20 bg-primary mx-auto mt-4"></div>
+        </div>
+        <div class="relative">
+          <div id="carousel-transferencia" class="carousel-container flex overflow-x-auto gap-4 pb-4 snap-x" role="region" aria-label="Carrusel transferencia de conocimientos">
+            <div class="carousel-slide min-w-[280px] md:min-w-[360px]">
+              <div class="aspect-[4/3] rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-700 shadow-lg ring-2 ring-transparent hover:ring-primary/30 transition-all">
+                <div class="carousel-img-wrap w-full h-full">
+                  <img src="assets/page_liderazgo/transferencia_1.png" alt="Transferencia de conocimientos 1" class="w-full h-full object-cover" onerror="window.carouselImgFallback(this)"/>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide min-w-[280px] md:min-w-[360px]">
+              <div class="aspect-[4/3] rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-700 shadow-lg ring-2 ring-transparent hover:ring-primary/30 transition-all">
+                <div class="carousel-img-wrap w-full h-full">
+                  <img src="assets/page_liderazgo/transferencia_2.png" alt="Transferencia de conocimientos 2" class="w-full h-full object-cover" onerror="window.carouselImgFallback(this)"/>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide min-w-[280px] md:min-w-[360px]">
+              <div class="aspect-[4/3] rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-700 shadow-lg ring-2 ring-transparent hover:ring-primary/30 transition-all">
+                <div class="carousel-img-wrap w-full h-full">
+                  <img src="assets/page_liderazgo/transferencia_3.png" alt="Transferencia de conocimientos 3" class="w-full h-full object-cover" onerror="window.carouselImgFallback(this)"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="carousel-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 z-10 size-10 md:size-12 rounded-full bg-primary text-black shadow-lg flex items-center justify-center hover:scale-110 transition-transform" aria-label="Anterior" data-carousel="carousel-transferencia">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button type="button" class="carousel-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 z-10 size-10 md:size-12 rounded-full bg-primary text-black shadow-lg flex items-center justify-center hover:scale-110 transition-transform" aria-label="Siguiente" data-carousel="carousel-transferencia">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ESPACIOS QUE TRANSFORMAMOS – CAROUSEL ========== -->
+    <section class="py-16 px-6 bg-white dark:bg-neutral-dark">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">
+            Espacios que <span class="text-primary">transformamos</span>
+          </h2>
+          <p class="text-neutral-600 dark:text-white/60 max-w-2xl mx-auto">Colegios, comunidades y entornos mejorados con gestión y liderazgo técnico.</p>
+          <div class="h-1 w-20 bg-primary mx-auto mt-4"></div>
+        </div>
+        <div class="relative">
+          <div id="carousel-espacios" class="carousel-container flex overflow-x-auto gap-4 pb-4 snap-x" role="region" aria-label="Carrusel espacios">
+            <div class="carousel-slide min-w-[280px] md:min-w-[360px]">
+              <div class="aspect-[4/3] rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-700 shadow-lg ring-2 ring-transparent hover:ring-primary/30 transition-all">
+                <div class="carousel-img-wrap w-full h-full">
+                  <img src="assets/page_liderazgo/espacios_1.jpeg" alt="Espacios que transformamos 1" class="w-full h-full object-cover" onerror="window.carouselImgFallback(this)"/>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide min-w-[280px] md:min-w-[360px]">
+              <div class="aspect-[4/3] rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-700 shadow-lg ring-2 ring-transparent hover:ring-primary/30 transition-all">
+                <div class="carousel-img-wrap w-full h-full">
+                  <img src="assets/page_liderazgo/espacios_2.jpeg" alt="Espacios que transformamos 2" class="w-full h-full object-cover" onerror="window.carouselImgFallback(this)"/>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide min-w-[280px] md:min-w-[360px]">
+              <div class="aspect-[4/3] rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-700 shadow-lg ring-2 ring-transparent hover:ring-primary/30 transition-all">
+                <div class="carousel-img-wrap w-full h-full">
+                  <img src="assets/page_liderazgo/espacios_3.jpeg" alt="Espacios que transformamos 3" class="w-full h-full object-cover" onerror="window.carouselImgFallback(this)"/>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide min-w-[280px] md:min-w-[360px]">
+              <div class="aspect-[4/3] rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-700 shadow-lg ring-2 ring-transparent hover:ring-primary/30 transition-all">
+                <div class="carousel-img-wrap w-full h-full">
+                  <img src="assets/page_liderazgo/espacios_4.jpeg" alt="Espacios que transformamos 4" class="w-full h-full object-cover" onerror="window.carouselImgFallback(this)"/>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide min-w-[280px] md:min-w-[360px]">
+              <div class="aspect-[4/3] rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-700 shadow-lg ring-2 ring-transparent hover:ring-primary/30 transition-all">
+                <div class="carousel-img-wrap w-full h-full">
+                  <img src="assets/page_liderazgo/espacios_5.jpeg" alt="Espacios que transformamos 5" class="w-full h-full object-cover" onerror="window.carouselImgFallback(this)"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="carousel-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 z-10 size-10 md:size-12 rounded-full bg-primary text-black shadow-lg flex items-center justify-center hover:scale-110 transition-transform" aria-label="Anterior" data-carousel="carousel-espacios">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button type="button" class="carousel-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 z-10 size-10 md:size-12 rounded-full bg-primary text-black shadow-lg flex items-center justify-center hover:scale-110 transition-transform" aria-label="Siguiente" data-carousel="carousel-espacios">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== LO SOCIAL EN EL CENTRO – CAROUSEL ========== -->
+    <section class="py-16 px-6 bg-white dark:bg-neutral-dark border-t border-neutral-200 dark:border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">
+            Lo social en el <span class="text-primary">centro</span>
+          </h2>
+          <p class="text-neutral-600 dark:text-white/60 max-w-2xl mx-auto">Comunidad, cultura y tecnología que transforman.</p>
+          <div class="h-1 w-20 bg-primary mx-auto mt-4"></div>
+        </div>
+        <div class="relative">
+          <div id="carousel-social" class="carousel-container flex overflow-x-auto gap-4 pb-4 snap-x" role="region" aria-label="Carrusel lo social">
+            <div class="carousel-slide min-w-[280px] md:min-w-[380px]">
+              <div class="aspect-[4/3] rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-700 shadow-xl ring-2 ring-transparent hover:ring-primary/40 transition-all">
+                <div class="carousel-img-wrap w-full h-full">
+                  <img src="assets/page_liderazgo/social_1.jpeg" alt="Lo social 1" class="w-full h-full object-cover" onerror="window.carouselImgFallback(this)"/>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide min-w-[280px] md:min-w-[380px]">
+              <div class="aspect-[4/3] rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-700 shadow-xl ring-2 ring-transparent hover:ring-primary/40 transition-all">
+                <div class="carousel-img-wrap w-full h-full">
+                  <img src="assets/page_liderazgo/social_2.jpeg" alt="Lo social 2" class="w-full h-full object-cover" onerror="window.carouselImgFallback(this)"/>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide min-w-[280px] md:min-w-[380px]">
+              <div class="aspect-[4/3] rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-700 shadow-xl ring-2 ring-transparent hover:ring-primary/40 transition-all">
+                <div class="carousel-img-wrap w-full h-full">
+                  <img src="assets/page_liderazgo/social_3.jpeg" alt="Lo social 3" class="w-full h-full object-cover" onerror="window.carouselImgFallback(this)"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="carousel-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 z-10 size-10 md:size-12 rounded-full bg-primary text-black shadow-lg flex items-center justify-center hover:scale-110 transition-transform" aria-label="Anterior" data-carousel="carousel-social">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button type="button" class="carousel-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 z-10 size-10 md:size-12 rounded-full bg-primary text-black shadow-lg flex items-center justify-center hover:scale-110 transition-transform" aria-label="Siguiente" data-carousel="carousel-social">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FRASES QUE NOS GUÍAN ========== -->
+    <section class="py-16 px-6 bg-neutral-50 dark:bg-neutral-900 border-y border-neutral-200 dark:border-white/5">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-center text-neutral-500 dark:text-white/50 text-xs font-bold uppercase tracking-widest mb-6">Frases que nos guían</p>
+        <div id="carousel-frases" class="overflow-hidden relative">
+          <div class="carousel-frase flex transition-transform duration-500 ease-out" style="transform: translateX(0);">
+            <p class="min-w-full text-center text-xl md:text-2xl font-bold text-neutral-800 dark:text-white px-4">La transferencia de conocimientos construye comunidades más fuertes.</p>
+            <p class="min-w-full text-center text-xl md:text-2xl font-bold text-neutral-800 dark:text-white px-4">Cada espacio mejorado es una oportunidad para el desarrollo.</p>
+            <p class="min-w-full text-center text-xl md:text-2xl font-bold text-neutral-800 dark:text-white px-4">Liderar con rigor y empatía genera resultados sostenibles.</p>
+          </div>
+          <div class="flex justify-center gap-2 mt-6">
+            <button type="button" class="frase-dot w-2.5 h-2.5 rounded-full bg-primary border-2 border-neutral-400" data-index="0" aria-label="Frase 1"></button>
+            <button type="button" class="frase-dot w-2.5 h-2.5 rounded-full bg-neutral-300 dark:bg-neutral-600 border-2 border-transparent" data-index="1" aria-label="Frase 2"></button>
+            <button type="button" class="frase-dot w-2.5 h-2.5 rounded-full bg-neutral-300 dark:bg-neutral-600 border-2 border-transparent" data-index="2" aria-label="Frase 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="py-12 px-6 bg-white dark:bg-neutral-dark text-center border-t border-neutral-200 dark:border-white/5">
+      <p class="text-neutral-600 dark:text-white/60 mb-6">Conoce más sobre nuestro equipo y trayectoria en la página principal.</p>
+      <a href="index.html#labor" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors">
+        Ver perfil
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+    </section>
+
+    <!-- ========== PIE Y CONTACTO ========== -->
+    <footer class="bg-background-dark text-white pt-24 pb-12 px-6" id="contacto">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-16 pb-16 border-b border-white/10">
+        <div class="space-y-6">
+          <div class="flex items-center gap-3">
+            <img src="assets/icon-carbonell-soluciones.png" alt="Carbonell Soluciones" class="size-8 object-contain rounded"/>
+            <h2 class="text-white text-xl font-extrabold tracking-tighter uppercase">Carbonell<span class="text-primary">Soluciones</span></h2>
+          </div>
+          <p class="text-white/40 text-sm leading-relaxed">
+            Consultoría de ingeniería de élite con sede en Atlántico, Colombia. Liderando la transformación regional con rigor e inteligencia.
+          </p>
+          <div class="flex gap-4">
+            <a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" href="#"><span class="material-symbols-outlined text-xl">share</span></a>
+            <a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" href="#"><span class="material-symbols-outlined text-xl">account_circle</span></a>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-primary font-bold text-sm uppercase tracking-widest">Contacto Directo</h4>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary">location_on</span>
+              <p class="text-white/60 text-sm">Cra. 41b #73b-82,<br/>Norte Centro Histórico,<br/>Barranquilla, Atlántico</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="material-symbols-outlined text-primary">mail</span>
+              <a class="text-white/60 text-sm hover:text-primary transition-colors" href="mailto:solucionescarbonell@gmail.com">solucionescarbonell@gmail.com</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 pt-2 border-t border-white/10 mt-4">
+            <span class="material-symbols-outlined text-primary">schedule</span>
+            <div class="text-white/60 text-sm">
+              <p class="font-bold text-white">Horario de Atención:</p>
+              <p>Lunes a Viernes: 8:00 a.m. a 6:00 p.m.</p>
+              <p>Sábados: 8:00 a.m. a 12:30 p.m.</p>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-primary font-bold text-sm uppercase tracking-widest">Atención Inmediata</h4>
+          <p class="text-white/40 text-sm leading-relaxed">¿Deseas iniciar una auditoría o estructurar un proyecto hoy mismo?</p>
+          <a class="flex items-center justify-center gap-3 w-full py-4 bg-primary text-black font-extrabold rounded-lg hover:bg-white transition-all shadow-lg shadow-primary/20" href="https://wa.me/573014251319">
+            <span class="material-symbols-outlined">chat</span>
+            WHATSAPP: +57 301 425 13 19
+          </a>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-white/20">
+        <p>© 2024 Carbonell Soluciones. Todos los derechos reservados.</p>
+        <div class="flex gap-6">
+          <a class="hover:text-primary transition-colors" href="#">Términos de Servicio</a>
+          <a class="hover:text-primary transition-colors" href="#">Privacidad de Datos</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <a class="fixed bottom-8 right-8 z-[100] group" href="https://wa.me/573014251319">
+    <div class="absolute -inset-2 bg-primary/30 blur rounded-full animate-pulse group-hover:bg-primary/50 transition-all"></div>
+    <div class="relative bg-primary size-14 rounded-full flex items-center justify-center text-black shadow-2xl group-hover:scale-110 transition-transform">
+      <span class="material-symbols-outlined text-3xl font-bold">chat</span>
+    </div>
+    <div class="absolute bottom-16 right-0 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-black/10">¿Cómo podemos ayudarte?</div>
+  </a>
+
+  <script>
+    (function () {
+      document.querySelectorAll('.carousel-prev, .carousel-next').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var id = this.getAttribute('data-carousel');
+          var el = document.getElementById(id);
+          if (!el) return;
+          var step = el.querySelector('.carousel-slide') ? el.querySelector('.carousel-slide').offsetWidth + 16 : 320;
+          if (this.classList.contains('carousel-next')) el.scrollBy({ left: step, behavior: 'smooth' });
+          else el.scrollBy({ left: -step, behavior: 'smooth' });
+        });
+      });
+      var fraseEl = document.querySelector('.carousel-frase');
+      var dots = document.querySelectorAll('.frase-dot');
+      var index = 0;
+      var total = dots.length;
+      function goTo(i) {
+        index = (i + total) % total;
+        if (fraseEl) fraseEl.style.transform = 'translateX(-' + index * 100 + '%)';
+        dots.forEach(function (d, j) {
+          d.classList.toggle('bg-primary', j === index);
+          d.classList.toggle('bg-neutral-300', j !== index);
+          d.classList.toggle('dark:bg-neutral-600', j !== index);
+        });
+      }
+      dots.forEach(function (d, i) {
+        d.addEventListener('click', function () { goTo(i); });
+      });
+      setInterval(function () { goTo(index + 1); }, 7000);
+      window.carouselImgFallback = function (img) {
+        var src = img.src || '';
+        if (src.indexOf('.jpeg') !== -1 || src.indexOf('.jpg') !== -1) {
+          window.carouselImgError(img);
+          return;
+        }
+        if (!img.dataset.triedJpg) {
+          img.dataset.triedJpg = '1';
+          img.onerror = function () { window.carouselImgFallback(img); };
+          img.src = src.replace(/\.png$/i, '.jpg');
+          return;
+        }
+        if (!img.dataset.triedJpeg) {
+          img.dataset.triedJpeg = '1';
+          img.onerror = function () { window.carouselImgError(img); };
+          img.src = src.replace(/\.(png|jpg)$/i, '.jpeg');
+          return;
+        }
+        window.carouselImgError(img);
+      };
+      window.carouselImgError = function (img) {
+        if (img._placeholderDone) return;
+        img._placeholderDone = true;
+        img.onerror = null;
+        img.style.display = 'none';
+        var wrap = img.closest('.carousel-img-wrap') || img.parentElement;
+        if (!wrap) return;
+        wrap.classList.add('flex', 'items-center', 'justify-center');
+        var span = document.createElement('span');
+        span.className = 'text-neutral-400 dark:text-neutral-500 text-sm';
+        span.setAttribute('aria-hidden', 'true');
+        wrap.appendChild(span);
+      };
+    })();
+  </script>
+</body>
+</html>

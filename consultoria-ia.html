@@ -47,6 +47,10 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .modal-en-construccion { opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
+        .modal-en-construccion.open { opacity: 1; visibility: visible; }
+        .modal-en-construccion .modal-panel { transform: scale(0.9); transition: transform 0.3s ease-out; }
+        .modal-en-construccion.open .modal-panel { transform: scale(1); }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-neutral-dark dark:text-white transition-colors duration-300">
@@ -58,9 +62,9 @@
       <h1 class="text-white text-xl font-extrabold tracking-tighter uppercase">Carbonell<span class="text-primary">Soluciones</span></h1>
     </a>
     <nav class="hidden md:flex items-center gap-8">
-      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="index.html#servicios">SERVICIOS</a>
-      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="index.html#liderazgo">LIDERAZGO</a>
-      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="index.html#proyectos">PROYECTOS</a>
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="servicios.html">SERVICIOS</a>
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="labor.html">LABOR</a>
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="proyectos.html">PROYECTOS</a>
       <a class="px-5 py-2 bg-primary text-black text-sm font-bold rounded-lg hover:bg-white transition-all" href="consultoria-ia.html">CONSULTORÍA IA</a>
     </nav>
     <button class="md:hidden text-white">
@@ -174,6 +178,36 @@
     </footer>
   </main>
 
+  <!-- Modal En construcción (se muestra tras unos segundos) -->
+  <div id="modal-en-construccion" class="modal-en-construccion fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modal-en-construccion-title">
+    <div class="modal-panel w-full max-w-lg rounded-2xl overflow-hidden border-2 border-primary/40 bg-white dark:bg-neutral-dark shadow-2xl">
+      <div class="bg-primary px-6 py-4 flex items-center gap-3">
+        <span class="material-symbols-outlined text-black text-2xl">construction</span>
+        <div>
+          <h2 id="modal-en-construccion-title" class="text-black font-extrabold text-lg tracking-tight">Este chat está en construcción</h2>
+          <p class="text-black/70 text-sm font-medium">El Agente Estratégico IA se encuentra en desarrollo</p>
+        </div>
+      </div>
+      <div class="p-6 text-neutral-700 dark:text-white/80 text-sm leading-relaxed max-h-[70vh] overflow-y-auto">
+        <p class="mb-4">
+          El asistente de esta página está en construcción. Cuando esté listo, ofrecerá <strong class="text-neutral-900 dark:text-white">estructuración de proyectos</strong> y <strong class="text-neutral-900 dark:text-white">asesoría inicial</strong>: desde tu idea hasta el marco técnico y financiero.
+        </p>
+        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-3">Lo que traerá este chat</p>
+        <ul class="space-y-2 mb-4">
+          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary shrink-0 mt-0.5 text-lg">check_circle</span><span><strong>Estructuración técnica:</strong> topografía, viabilidad y alcance.</span></li>
+          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary shrink-0 mt-0.5 text-lg">check_circle</span><span><strong>Asesoría inicial:</strong> diagnóstico de etapa y próximos pasos.</span></li>
+          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary shrink-0 mt-0.5 text-lg">check_circle</span><span><strong>Impacto social y presupuesto estimado.</strong></span></li>
+          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary shrink-0 mt-0.5 text-lg">check_circle</span><span><strong>Borrador de auditoría inicial</strong> y hoja de ruta.</span></li>
+        </ul>
+        <p class="text-neutral-500 dark:text-white/50 text-xs italic mb-5">Mientras tanto, contáctanos por WhatsApp para una asesoría personalizada.</p>
+        <a href="index.html" class="inline-flex items-center justify-center gap-2 w-full py-3 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors">
+          <span class="material-symbols-outlined">home</span>
+          Volver al inicio
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Widget flotante WhatsApp -->
   <a class="fixed bottom-8 right-8 z-[100] group" href="https://wa.me/573014251319">
     <div class="absolute -inset-2 bg-primary/30 blur rounded-full animate-pulse group-hover:bg-primary/50 transition-all"></div>
@@ -206,6 +240,15 @@
       input.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') { e.preventDefault(); sendMessage(); }
       });
+
+      // Modal "En construcción": se muestra tras 3 segundos; solo se sale con "Volver al inicio"
+      var modal = document.getElementById('modal-en-construccion');
+      if (modal) {
+        setTimeout(function () {
+          modal.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }, 3000);
+      }
     })();
   </script>
 </body>

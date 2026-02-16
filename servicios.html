@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Servicios | Carbonell Soluciones</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#ffcc00",
+            "background-light": "#f8f8f5",
+            "background-dark": "#121212",
+            "neutral-dark": "#1a1a1a",
+            "accent-gray": "#2d2d2d"
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Manrope', sans-serif; scroll-behavior: smooth; }
+    .bg-grid-pattern {
+      background-image: radial-gradient(circle, #ffcc0022 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .modal-overlay { opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
+    .modal-overlay.open { opacity: 1; visibility: visible; }
+    .modal-panel { transform: scale(0.95); transition: transform 0.3s ease-out; }
+    .modal-overlay.open .modal-panel { transform: scale(1); }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-neutral-dark dark:text-white transition-colors duration-300">
+
+  <header class="sticky top-0 z-50 w-full bg-background-dark border-b border-white/10 px-6 lg:px-20 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/icon-carbonell-soluciones.png" alt="Carbonell Soluciones" class="size-8 object-contain rounded"/>
+      <h1 class="text-white text-xl font-extrabold tracking-tighter uppercase">Carbonell<span class="text-primary">Soluciones</span></h1>
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a class="text-primary text-sm font-semibold" href="servicios.html">SERVICIOS</a>
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="labor.html">LABOR</a>
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="proyectos.html">PROYECTOS</a>
+      <a class="px-5 py-2 bg-primary text-black text-sm font-bold rounded-lg hover:bg-white transition-all" href="consultoria-ia.html">CONSULTORÍA IA</a>
+    </nav>
+    <button class="md:hidden text-white" type="button" aria-label="Menú">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ========== HERO MINIMALISTA ========== -->
+    <section class="relative py-16 px-6 overflow-hidden bg-white dark:bg-neutral-dark">
+      <div class="absolute inset-0 bg-grid-pattern opacity-20" style="opacity: 0.1;"></div>
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-white">
+          Soluciones Integrales con Resultados Comprobados
+        </h2>
+      </div>
+    </section>
+
+    <!-- ========== BANNER MÉTRICAS (COUNTERS ANIMADOS) ========== -->
+    <section class="py-10 px-6 bg-primary" aria-label="Métricas de impacto">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div>
+          <p class="text-black font-black text-4xl md:text-5xl mb-1" id="counter-anios">0</p>
+          <p class="text-black/80 font-bold text-sm uppercase tracking-wider">Años de Trayectoria Impecable</p>
+        </div>
+        <div>
+          <p class="text-black font-black text-4xl md:text-5xl mb-1"><span id="counter-clientes">0</span></p>
+          <p class="text-black/80 font-bold text-sm uppercase tracking-wider">Clientes Corporativos y Públicos</p>
+        </div>
+        <div>
+          <p class="text-black font-black text-4xl md:text-5xl mb-1"><span id="counter-beneficiarios">0</span></p>
+          <p class="text-black/80 font-bold text-sm uppercase tracking-wider">Beneficiarios en Proyectos Sociales</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== GRID DE SERVICIOS (MODAL VER METODOLOGÍA) ========== -->
+    <section class="py-16 px-6 bg-background-light dark:bg-background-dark">
+      <div class="max-w-7xl mx-auto">
+        <p class="text-center text-primary font-bold text-xs uppercase tracking-widest mb-2">Portafolio</p>
+        <h3 class="text-center text-2xl md:text-3xl font-extrabold tracking-tight mb-12">Nuestros Servicios</h3>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="servicio-card rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark p-6 hover:border-primary/50 transition-all shadow-sm hover:shadow-lg flex flex-col">
+            <span class="material-symbols-outlined text-4xl text-primary mb-4">campaign</span>
+            <h4 class="font-bold text-lg mb-2">Convocatorias Nacionales y Privadas</h4>
+            <p class="text-neutral-500 dark:text-white/50 text-sm mb-4 flex-1">Acompañamiento con rigor técnico para ONG, Pymes y Alcaldías.</p>
+            <button type="button" class="btn-metodologia w-full py-2.5 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors text-sm" data-servicio="1">Ver Metodología</button>
+          </article>
+          <article class="servicio-card rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark p-6 hover:border-primary/50 transition-all shadow-sm hover:shadow-lg flex flex-col">
+            <span class="material-symbols-outlined text-4xl text-primary mb-4">gavel</span>
+            <h4 class="font-bold text-lg mb-2">Asesoría Legal, Técnica y Mercadeo</h4>
+            <p class="text-neutral-500 dark:text-white/50 text-sm mb-4 flex-1">Cumplimiento normativo y posicionamiento de marca.</p>
+            <button type="button" class="btn-metodologia w-full py-2.5 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors text-sm" data-servicio="2">Ver Metodología</button>
+          </article>
+          <article class="servicio-card rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark p-6 hover:border-primary/50 transition-all shadow-sm hover:shadow-lg flex flex-col">
+            <span class="material-symbols-outlined text-4xl text-primary mb-4">business_center</span>
+            <h4 class="font-bold text-lg mb-2">Formulación de Planes de Negocio</h4>
+            <p class="text-neutral-500 dark:text-white/50 text-sm mb-4 flex-1">Modelado financiero y atracción de inversores para Startups y Pymes.</p>
+            <button type="button" class="btn-metodologia w-full py-2.5 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors text-sm" data-servicio="3">Ver Metodología</button>
+          </article>
+          <article class="servicio-card rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark p-6 hover:border-primary/50 transition-all shadow-sm hover:shadow-lg flex flex-col">
+            <span class="material-symbols-outlined text-4xl text-primary mb-4">analytics</span>
+            <h4 class="font-bold text-lg mb-2">Investigación de Mercados</h4>
+            <p class="text-neutral-500 dark:text-white/50 text-sm mb-4 flex-1">Datos avanzados y análisis estadístico para lanzamientos.</p>
+            <button type="button" class="btn-metodologia w-full py-2.5 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors text-sm" data-servicio="4">Ver Metodología</button>
+          </article>
+          <article class="servicio-card rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark p-6 hover:border-primary/50 transition-all shadow-sm hover:shadow-lg flex flex-col">
+            <span class="material-symbols-outlined text-4xl text-primary mb-4">engineering</span>
+            <h4 class="font-bold text-lg mb-2">Interventoría de Proyectos</h4>
+            <p class="text-neutral-500 dark:text-white/50 text-sm mb-4 flex-1">Fiscalización técnica, cronogramas y gestión de riesgos.</p>
+            <button type="button" class="btn-metodologia w-full py-2.5 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors text-sm" data-servicio="5">Ver Metodología</button>
+          </article>
+          <article class="servicio-card rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark p-6 hover:border-primary/50 transition-all shadow-sm hover:shadow-lg flex flex-col">
+            <span class="material-symbols-outlined text-4xl text-primary mb-4">school</span>
+            <h4 class="font-bold text-lg mb-2">Apertura de Instituciones Educativas</h4>
+            <p class="text-neutral-500 dark:text-white/50 text-sm mb-4 flex-1">Licencias, PEI y sostenibilidad para ETDH y educación formal.</p>
+            <button type="button" class="btn-metodologia w-full py-2.5 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors text-sm" data-servicio="6">Ver Metodología</button>
+          </article>
+          <article class="servicio-card rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark p-6 hover:border-primary/50 transition-all shadow-sm hover:shadow-lg flex flex-col">
+            <span class="material-symbols-outlined text-4xl text-primary mb-4">verified</span>
+            <h4 class="font-bold text-lg mb-2">Sistemas de Gestión de Calidad (ISO 9001)</h4>
+            <p class="text-neutral-500 dark:text-white/50 text-sm mb-4 flex-1">Diagnóstico, documentación y acompañamiento hasta certificación.</p>
+            <button type="button" class="btn-metodologia w-full py-2.5 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors text-sm" data-servicio="7">Ver Metodología</button>
+          </article>
+          <article class="servicio-card rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark p-6 hover:border-primary/50 transition-all shadow-sm hover:shadow-lg flex flex-col">
+            <span class="material-symbols-outlined text-4xl text-primary mb-4">fact_check</span>
+            <h4 class="font-bold text-lg mb-2">Auditorías de Calidad</h4>
+            <p class="text-neutral-500 dark:text-white/50 text-sm mb-4 flex-1">Evaluación de procesos, no conformidades y planes de mejora.</p>
+            <button type="button" class="btn-metodologia w-full py-2.5 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors text-sm" data-servicio="8">Ver Metodología</button>
+          </article>
+          <article class="servicio-card rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark p-6 hover:border-primary/50 transition-all shadow-sm hover:shadow-lg flex flex-col">
+            <span class="material-symbols-outlined text-4xl text-primary mb-4">folder</span>
+            <h4 class="font-bold text-lg mb-2">Gestión Documental Experta</h4>
+            <p class="text-neutral-500 dark:text-white/50 text-sm mb-4 flex-1">Organización y control documental técnico para ingeniería.</p>
+            <button type="button" class="btn-metodologia w-full py-2.5 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors text-sm" data-servicio="9">Ver Metodología</button>
+          </article>
+          <article class="servicio-card rounded-xl border-2 border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-dark p-6 hover:border-primary/50 transition-all shadow-sm hover:shadow-lg flex flex-col">
+            <span class="material-symbols-outlined text-4xl text-primary mb-4">code</span>
+            <h4 class="font-bold text-lg mb-2">Cocreación de Software y Soluciones Tecnológicas</h4>
+            <p class="text-neutral-500 dark:text-white/50 text-sm mb-4 flex-1">Aplicaciones y herramientas digitales a la medida.</p>
+            <button type="button" class="btn-metodologia w-full py-2.5 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors text-sm" data-servicio="10">Ver Metodología</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CÓMO TRABAJAMOS – TIMELINE VERTICAL ========== -->
+    <section class="py-16 px-6 bg-white dark:bg-neutral-dark border-y border-neutral-200 dark:border-white/5">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-center text-primary font-bold text-xs uppercase tracking-widest mb-2">Proceso</p>
+        <h3 class="text-center text-2xl md:text-3xl font-extrabold tracking-tight mb-12">Cómo Trabajamos</h3>
+        <div class="relative">
+          <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-primary/30"></div>
+          <div class="space-y-8">
+            <div class="flex gap-6 items-start relative">
+              <span class="flex shrink-0 size-12 rounded-full bg-primary text-black font-black flex items-center justify-center text-lg z-10">1</span>
+              <div>
+                <h4 class="font-bold text-lg text-neutral-800 dark:text-white">Diagnóstico</h4>
+                <p class="text-neutral-500 dark:text-white/60 text-sm">Identificamos necesidades y oportunidades con rigor técnico.</p>
+              </div>
+            </div>
+            <div class="flex gap-6 items-start relative">
+              <span class="flex shrink-0 size-12 rounded-full bg-primary text-black font-black flex items-center justify-center text-lg z-10">2</span>
+              <div>
+                <h4 class="font-bold text-lg text-neutral-800 dark:text-white">Estrategia</h4>
+                <p class="text-neutral-500 dark:text-white/60 text-sm">Diseñamos el marco lógico y la hoja de ruta.</p>
+              </div>
+            </div>
+            <div class="flex gap-6 items-start relative">
+              <span class="flex shrink-0 size-12 rounded-full bg-primary text-black font-black flex items-center justify-center text-lg z-10">3</span>
+              <div>
+                <h4 class="font-bold text-lg text-neutral-800 dark:text-white">Ejecución</h4>
+                <p class="text-neutral-500 dark:text-white/60 text-sm">Implementación con seguimiento y control.</p>
+              </div>
+            </div>
+            <div class="flex gap-6 items-start relative">
+              <span class="flex shrink-0 size-12 rounded-full bg-primary text-black font-black flex items-center justify-center text-lg z-10">4</span>
+              <div>
+                <h4 class="font-bold text-lg text-neutral-800 dark:text-white">Auditoría</h4>
+                <p class="text-neutral-500 dark:text-white/60 text-sm">Evaluación y verificación de resultados.</p>
+              </div>
+            </div>
+            <div class="flex gap-6 items-start relative">
+              <span class="flex shrink-0 size-12 rounded-full bg-primary text-black font-black flex items-center justify-center text-lg z-10">5</span>
+              <div>
+                <h4 class="font-bold text-lg text-neutral-800 dark:text-white">Éxito</h4>
+                <p class="text-neutral-500 dark:text-white/60 text-sm">Resultados comprobados y mejora continua.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER CONTACTO ACTUALIZADO ========== -->
+    <footer class="bg-background-dark text-white pt-20 pb-12 px-6" id="contacto">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-12 pb-12 border-b border-white/10">
+        <div class="space-y-6">
+          <div class="flex items-center gap-3">
+            <img src="assets/icon-carbonell-soluciones.png" alt="Carbonell Soluciones" class="size-8 object-contain rounded"/>
+            <h2 class="text-white text-xl font-extrabold tracking-tighter uppercase">Carbonell<span class="text-primary">Soluciones</span></h2>
+          </div>
+          <p class="text-white/40 text-sm leading-relaxed">
+            Consultoría de ingeniería de élite. Soluciones integrales con resultados comprobados.
+          </p>
+          <div class="flex gap-4">
+            <a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" href="#"><span class="material-symbols-outlined text-xl">share</span></a>
+            <a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" href="#"><span class="material-symbols-outlined text-xl">account_circle</span></a>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-primary font-bold text-sm uppercase tracking-widest">Sedes</h4>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary shrink-0">location_on</span>
+              <div class="text-white/60 text-sm">
+                <p class="font-bold text-white/90">Norte</p>
+                <p>Carrera 41B # 73B - 82, Betania, Barranquilla</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary shrink-0">location_on</span>
+              <div class="text-white/60 text-sm">
+                <p class="font-bold text-white/90">Oficina 1</p>
+                <p>Diagonal 64 # 1B - 67, Soledad, Atlántico</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 pt-2 border-t border-white/10">
+            <span class="material-symbols-outlined text-primary shrink-0">schedule</span>
+            <div class="text-white/60 text-sm">
+              <p class="font-bold text-white/90">Horarios</p>
+              <p>Lunes a Viernes: 8:00 a.m. – 6:00 p.m.</p>
+              <p>Sábados: 8:00 a.m. – 12:30 p.m.</p>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-primary font-bold text-sm uppercase tracking-widest">Contacto</h4>
+          <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-primary">mail</span>
+            <a class="text-white/60 text-sm hover:text-primary transition-colors" href="mailto:solucionescarbonell@gmail.com">solucionescarbonell@gmail.com</a>
+          </div>
+          <a class="flex items-center justify-center gap-3 w-full py-4 bg-primary text-black font-extrabold rounded-lg hover:bg-white transition-all shadow-lg shadow-primary/20" href="https://wa.me/573014251319">
+            <span class="material-symbols-outlined">chat</span>
+            WHATSAPP: +57 301 425 13 19
+          </a>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-white/20">
+        <p>© 2024 Carbonell Soluciones. Todos los derechos reservados.</p>
+        <div class="flex gap-6">
+          <a class="hover:text-primary transition-colors" href="#">Términos</a>
+          <a class="hover:text-primary transition-colors" href="#">Privacidad</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Modal Metodología -->
+  <div id="modal-metodologia" class="modal-overlay fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-panel w-full max-w-lg rounded-2xl bg-white dark:bg-neutral-dark shadow-2xl border border-neutral-200 dark:border-white/10 overflow-hidden">
+      <div class="p-6 border-b border-neutral-100 dark:border-white/10 flex items-center justify-between">
+        <h3 id="modal-title" class="font-bold text-lg text-neutral-800 dark:text-white"></h3>
+        <button type="button" id="modal-cerrar" class="size-10 rounded-full bg-neutral-100 dark:bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" aria-label="Cerrar">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div id="modal-body" class="p-6 text-neutral-600 dark:text-white/70 text-sm leading-relaxed max-h-[60vh] overflow-y-auto"></div>
+    </div>
+  </div>
+
+  <a class="fixed bottom-8 right-8 z-[100] group" href="https://wa.me/573014251319">
+    <div class="absolute -inset-2 bg-primary/30 blur rounded-full animate-pulse group-hover:bg-primary/50 transition-all"></div>
+    <div class="relative bg-primary size-14 rounded-full flex items-center justify-center text-black shadow-2xl group-hover:scale-110 transition-transform">
+      <span class="material-symbols-outlined text-3xl font-bold">chat</span>
+    </div>
+    <div class="absolute bottom-16 right-0 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-black/10">¿Cómo podemos ayudarte?</div>
+  </a>
+
+  <script>
+    (function () {
+      var servicios = {
+        1: { titulo: "Convocatorias Nacionales y Privadas", contenido: "Análisis de viabilidad, diseño de marco lógico y redacción persuasiva para ONG, Pymes y Alcaldías." },
+        2: { titulo: "Asesoría Legal, Técnica y Mercadeo", contenido: "Cumplimiento normativo, optimización de procesos productivos y posicionamiento de marca." },
+        3: { titulo: "Formulación de Planes de Negocio", contenido: "Modelado financiero, investigación de competencia y atracción de inversores para Startups y Pymes." },
+        4: { titulo: "Investigación de Mercados", contenido: "Recolección de datos avanzada y análisis estadístico para lanzamientos de productos públicos o privados." },
+        5: { titulo: "Interventoría de Proyectos", contenido: "Fiscalización técnica, control de cronogramas y gestión de riesgos contractuales." },
+        6: { titulo: "Apertura de Instituciones Educativas", contenido: "Gestión de licencias ante autoridades, diseño de PEI y planificación de sostenibilidad para ETDH y educación formal." },
+        7: { titulo: "Sistemas de Gestión de Calidad (ISO 9001)", contenido: "Diagnóstico inicial, documentación de procesos y acompañamiento hasta la certificación." },
+        8: { titulo: "Auditorías de Calidad", contenido: "Evaluación directa de procesos, identificación de no conformidades y planes de mejora continua." },
+        9: { titulo: "Gestión Documental Experta", contenido: "Organización y control documental técnico para proyectos de ingeniería." },
+        10: { titulo: "Cocreación de Software y Soluciones Tecnológicas", contenido: "Desarrollo de aplicaciones y herramientas digitales a la medida de la necesidad del cliente." }
+      };
+
+      var modal = document.getElementById('modal-metodologia');
+      var modalTitle = document.getElementById('modal-title');
+      var modalBody = document.getElementById('modal-body');
+      var btnCerrar = document.getElementById('modal-cerrar');
+
+      document.querySelectorAll('.btn-metodologia').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var id = this.getAttribute('data-servicio');
+          var s = servicios[id];
+          if (!s) return;
+          modalTitle.textContent = s.titulo;
+          modalBody.textContent = s.contenido;
+          modal.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function cerrarModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      btnCerrar.addEventListener('click', cerrarModal);
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) cerrarModal();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') cerrarModal();
+      });
+
+      // Counters animados
+      var counterAnios = document.getElementById('counter-anios');
+      var counterClientes = document.getElementById('counter-clientes');
+      var counterBeneficiarios = document.getElementById('counter-beneficiarios');
+      var animado = false;
+
+      function animarCounter(el, fin, prefijo) {
+        prefijo = prefijo || '';
+        var inicio = 0;
+        var paso = fin / 50;
+        var t = 0;
+        var interval = setInterval(function () {
+          t += 1;
+          var v = Math.min(Math.round(inicio + paso * t), fin);
+          el.textContent = prefijo + v;
+          if (v >= fin) clearInterval(interval);
+        }, 40);
+      }
+
+      function onScroll() {
+        if (animado) return;
+        var banner = document.querySelector('section[aria-label="Métricas de impacto"]');
+        if (!banner) return;
+        var rect = banner.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.85) {
+          animado = true;
+          if (counterAnios) animarCounter(counterAnios, 20);
+          if (counterClientes) animarCounter(counterClientes, 200, '+');
+          if (counterBeneficiarios) animarCounter(counterBeneficiarios, 1500, '+');
+        }
+      }
+      window.addEventListener('scroll', onScroll);
+      onScroll();
+    })();
+  </script>
+</body>
+</html>
