@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Consultoría IA | Carbonell Soluciones</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ffcc00",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#121212",
+                        "neutral-dark": "#1a1a1a",
+                        "accent-gray": "#2d2d2d"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+  <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(circle, #ffcc0022 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-neutral-dark dark:text-white transition-colors duration-300">
+
+  <!-- ========== CABECERA ========== -->
+  <header class="sticky top-0 z-50 w-full bg-background-dark border-b border-white/10 px-6 lg:px-20 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/icon-carbonell-soluciones.png" alt="Carbonell Soluciones" class="size-8 object-contain rounded"/>
+      <h1 class="text-white text-xl font-extrabold tracking-tighter uppercase">Carbonell<span class="text-primary">Soluciones</span></h1>
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="index.html#servicios">SERVICIOS</a>
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="index.html#liderazgo">LIDERAZGO</a>
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="index.html#proyectos">PROYECTOS</a>
+      <a class="px-5 py-2 bg-primary text-black text-sm font-bold rounded-lg hover:bg-white transition-all" href="consultoria-ia.html">CONSULTORÍA IA</a>
+    </nav>
+    <button class="md:hidden text-white">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </header>
+
+  <main class="flex flex-col min-h-[calc(100vh-5rem)]">
+    <!-- ========== CHAT CONSULTORÍA IA ========== -->
+    <section class="relative flex-1 flex flex-col bg-white min-h-0 pt-4 sm:pt-6">
+      <div class="absolute inset-0 bg-grid-pattern opacity-20" style="opacity: 0.1;"></div>
+      <div class="w-full flex-1 flex flex-col px-4 sm:px-6 lg:px-8 relative z-10 min-h-0">
+        <div id="chat-consultoria-ia" class="flex flex-col flex-1 min-h-[calc(100vh-6rem)] rounded-2xl overflow-hidden border-2 border-primary/20 shadow-xl shadow-black/5 bg-white">
+          <!-- Encabezado del chat -->
+          <div class="bg-primary px-6 py-4 flex items-center justify-between rounded-t-2xl shrink-0">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-black">smart_toy</span>
+              <span class="text-black font-bold text-sm tracking-tight">AGENTE ESTRATÉGICO IA</span>
+            </div>
+            <button class="p-1 rounded hover:bg-black/10 transition-colors" type="button" aria-label="Más opciones">
+              <span class="material-symbols-outlined text-black">more_horiz</span>
+            </button>
+          </div>
+          <!-- Área de mensajes -->
+          <div class="flex-1 min-h-0 p-6 flex flex-col gap-4 overflow-y-auto bg-white" id="chat-messages">
+            <div class="bg-neutral-100 p-4 rounded-xl rounded-tl-none max-w-[85%] text-neutral-800 text-sm leading-relaxed border border-neutral-200">
+              Bienvenido a Carbonell Soluciones. Soy su asistente técnico. ¿En qué etapa se encuentra su proyecto de ingeniería o desarrollo social?
+            </div>
+            <div class="bg-primary/20 p-4 rounded-xl rounded-tr-none max-w-[85%] ml-auto text-neutral-900 text-sm font-medium border border-primary/30">
+              Tengo una idea para un puente comunitario en Atlántico y necesito estructuración técnica.
+            </div>
+            <div class="bg-neutral-100 p-4 rounded-xl rounded-tl-none max-w-[85%] text-neutral-800 text-sm leading-relaxed border border-neutral-200">
+              Excelente. Para puentes comunitarios evaluamos: 1. Topografía, 2. Impacto Social, 3. Presupuesto estimado. ¿Desea que generemos un borrador de auditoría inicial?
+            </div>
+            <div class="mt-auto flex items-center gap-2 text-neutral-400 text-xs italic">
+              <span class="material-symbols-outlined text-sm">schedule</span>
+              Consultoría inicial instantánea activada
+            </div>
+          </div>
+          <!-- Pie: entrada de texto -->
+          <div class="p-4 border-t border-neutral-100 bg-neutral-50 shrink-0">
+            <h3 class="text-neutral-400 text-[10px] font-bold uppercase tracking-widest mb-3 px-2">Describe tu proyecto aquí</h3>
+            <div class="flex gap-2">
+              <input id="chat-input" class="flex-1 bg-white border border-neutral-200 rounded-lg px-4 py-2 text-neutral-800 text-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-neutral-300" placeholder="Escribe tu idea o requerimiento..." type="text"/>
+              <button id="chat-send" class="size-10 bg-primary rounded-lg flex items-center justify-center text-black hover:scale-105 transition-transform shadow-md" type="button">
+                <span class="material-symbols-outlined">send</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PIE Y CONTACTO ========== -->
+    <footer class="bg-background-dark text-white pt-24 pb-12 px-6" id="contacto">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-16 pb-16 border-b border-white/10">
+        <div class="space-y-6">
+          <div class="flex items-center gap-3">
+            <img src="assets/icon-carbonell-soluciones.png" alt="Carbonell Soluciones" class="size-8 object-contain rounded"/>
+            <h1 class="text-white text-xl font-extrabold tracking-tighter uppercase">Carbonell<span class="text-primary">Soluciones</span></h1>
+          </div>
+          <p class="text-white/40 text-sm leading-relaxed">
+            Consultoría de ingeniería de élite con sede en Atlántico, Colombia. Liderando la transformación regional con rigor e inteligencia.
+          </p>
+          <div class="flex gap-4">
+            <a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" href="#">
+              <span class="material-symbols-outlined text-xl">share</span>
+            </a>
+            <a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" href="#">
+              <span class="material-symbols-outlined text-xl">account_circle</span>
+            </a>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-primary font-bold text-sm uppercase tracking-widest">Contacto Directo</h4>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary">location_on</span>
+              <p class="text-white/60 text-sm">Villa Linda Av. Murillo,<br/>Diagonal 64 #1B-67,<br/>Soledad, Atlántico</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="material-symbols-outlined text-primary">mail</span>
+              <a class="text-white/60 text-sm hover:text-primary transition-colors" href="mailto:solucionescarbonell@gmail.com">solucionescarbonell@gmail.com</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 pt-2 border-t border-white/10 mt-4">
+            <span class="material-symbols-outlined text-primary">schedule</span>
+            <div class="text-white/60 text-sm">
+              <p class="font-bold text-white">Horario de Atención:</p>
+              <p>Lunes a Viernes: 8:00 a.m. a 6:00 p.m.</p>
+              <p>Sábados: 8:00 a.m. a 12:30 p.m.</p>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-primary font-bold text-sm uppercase tracking-widest">Atención Inmediata</h4>
+          <p class="text-white/40 text-sm leading-relaxed">¿Deseas iniciar una auditoría o estructurar un proyecto hoy mismo?</p>
+          <a class="flex items-center justify-center gap-3 w-full py-4 bg-primary text-black font-extrabold rounded-lg hover:bg-white transition-all shadow-lg shadow-primary/20" href="https://wa.me/573014251319">
+            <span class="material-symbols-outlined">chat</span>
+            WHATSAPP: +57 301 425 13 19
+          </a>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-white/20">
+        <p>© 2024 Carbonell Soluciones. Todos los derechos reservados.</p>
+        <div class="flex gap-6">
+          <a class="hover:text-primary transition-colors" href="#">Términos de Servicio</a>
+          <a class="hover:text-primary transition-colors" href="#">Privacidad de Datos</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Widget flotante WhatsApp -->
+  <a class="fixed bottom-8 right-8 z-[100] group" href="https://wa.me/573014251319">
+    <div class="absolute -inset-2 bg-primary/30 blur rounded-full animate-pulse group-hover:bg-primary/50 transition-all"></div>
+    <div class="relative bg-primary size-14 rounded-full flex items-center justify-center text-black shadow-2xl group-hover:scale-110 transition-transform">
+      <span class="material-symbols-outlined text-3xl font-bold">chat</span>
+    </div>
+    <div class="absolute bottom-16 right-0 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-black/10">
+      ¿Cómo podemos ayudarte?
+    </div>
+  </a>
+
+  <script>
+    (function () {
+      var input = document.getElementById('chat-input');
+      var sendBtn = document.getElementById('chat-send');
+      var messagesEl = document.getElementById('chat-messages');
+      if (!input || !sendBtn || !messagesEl) return;
+      function sendMessage() {
+        var text = (input.value || '').trim();
+        if (!text) return;
+        var userBubble = document.createElement('div');
+        userBubble.className = 'bg-primary/20 p-4 rounded-xl rounded-tr-none max-w-[85%] ml-auto text-neutral-900 text-sm font-medium border border-primary/30';
+        userBubble.textContent = text;
+        messagesEl.appendChild(userBubble);
+        input.value = '';
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+        // Aquí luego conectarás n8n; por ahora solo se muestra el mensaje del usuario.
+      }
+      sendBtn.addEventListener('click', sendMessage);
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); sendMessage(); }
+      });
+    })();
+  </script>
+</body>
+</html>

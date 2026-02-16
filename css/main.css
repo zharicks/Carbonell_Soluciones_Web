@@ -1,0 +1,20 @@
+/**
+ * Carbonell Soluciones - Estilos base y utilidades
+ * Complementa Tailwind CSS sin alterar el diseño.
+ */
+
+body {
+  font-family: 'Manrope', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.bg-grid-pattern {
+  background-image: radial-gradient(circle, #ffcc0022 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

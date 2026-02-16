@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carbonell Soluciones | Ingeniería y Estrategia</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ffcc00",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#121212",
+                        "neutral-dark": "#1a1a1a",
+                        "accent-gray": "#2d2d2d"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+  <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(circle, #ffcc0022 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-neutral-dark dark:text-white transition-colors duration-300">
+
+  <!-- ========== CABECERA ========== -->
+  <header class="sticky top-0 z-50 w-full bg-background-dark border-b border-white/10 px-6 lg:px-20 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <img src="assets/icon-carbonell-soluciones.png" alt="Carbonell Soluciones" class="size-8 object-contain rounded"/>
+      <h1 class="text-white text-xl font-extrabold tracking-tighter uppercase">Carbonell<span class="text-primary">Soluciones</span></h1>
+    </div>
+    <nav class="hidden md:flex items-center gap-8">
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="#servicios">SERVICIOS</a>
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="#liderazgo">LIDERAZGO</a>
+      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="#proyectos">PROYECTOS</a>
+      <a class="px-5 py-2 bg-primary text-black text-sm font-bold rounded-lg hover:bg-white transition-all" href="consultoria-ia.html">CONSULTORÍA IA</a>
+    </nav>
+    <button class="md:hidden text-white">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ========== HERO + CHAT ========== -->
+    <section class="relative pt-16 pb-24 px-6 overflow-hidden bg-white">
+      <div class="absolute inset-0 bg-grid-pattern opacity-20" style="opacity: 0.1;"></div>
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
+        <div class="space-y-8">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            Elite Engineering Audit
+          </div>
+          <h2 class="text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-neutral-dark">
+            Estructuración y <span class="text-primary">Auditoría</span> de Proyectos.
+          </h2>
+          <p class="text-lg max-w-xl leading-relaxed text-neutral-600">
+            Combinamos rigor técnico de ingeniería con inteligencia estratégica para potenciar el desarrollo regional y la transformación social.
+          </p>
+          <div class="flex items-center gap-6 pt-4">
+            <div class="flex -space-x-3">
+              <div class="size-10 rounded-full border-2 border-background-dark bg-cover" data-alt="Team member profile photo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRLO1xbL1cckhvTb3QXZLhA3fuMuJCjEwEjKFt2UMAyFBLknSEiKKmQmlqHZxRQG-ChO_YLNmurxWNIUUQsHgdRqhLoiWFohFDalepoOq7lV6wHclCWU8ro5mqjg08I3s6b5F1JYYtP4Gazb_GBn16JgweHLPyrWC_oQeZKUp49ScfHnLEIbaVKqLsyjXe13HHjJzbIdsg4ydOPn0V6v_Je8qu_NjM_O8y2qeVsbBm4Q7cobypXxWBbP_ieWk_OPqpdmHcdFLmdio')"></div>
+              <div class="size-10 rounded-full border-2 border-background-dark bg-cover" data-alt="Team member profile photo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCbRJU5ELibIVhq6rgddJR8Htx-A3CjiG245AQNwSy6q3OuwnPKI5UftqPh_9GUrCl2LVisRbBVdFsnZD39KrxDwjZFpl3Pl3pC3PcUpUqnOaxRAyvpOZGVdLNG8JznRXZ8Sfu0pLLfGQqsdHkxeP8N9CrZHQK-ylxZnABvPbuREVCP5kOwqTtUME2j1o7chStgH_P-_NVNkr2kqCxDAxI0FtUIyqZBuWKX8LS1L5BsAxA0v333ainGHy0-W7v3lKkvCh42YT8XNPQ')"></div>
+              <div class="size-10 rounded-full border-2 border-background-dark bg-cover" data-alt="Team member profile photo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDvN8A2cL0ulSon4aI88KBffu3JuKmWRW-lsIkwdxbuoxBXwGh1VLhbGu6vgjPvtxvPsF5lB_yNHxpEAsLhbnavWu8aC4EnLvt-eSYXxMRTMls3nKvibWgLSFd0rU-vAL3J1dlvDXl8gQdUSv6ZHvzUF1TU1BWKLNKETckSrzs8cUb7A83c_MqcCFO_FpmaJxxoph43CeXBYAfXnhggV6D-GZAibdwSptR99y5LvN5A3Cd-FpfuFZMSCrhCC9Zq5Nfbg9x--zHv8-4')"></div>
+            </div>
+            <p class="text-sm font-medium text-neutral-400">Respaldado por 15+ años de experiencia técnica</p>
+          </div>
+        </div>
+        <!-- Widget Chat (placeholder n8n) -->
+        <div class="w-full max-w-[500px] mx-auto lg:ml-auto">
+          <div class="bg-white rounded-2xl overflow-hidden border-2 border-primary/20 shadow-xl shadow-black/5">
+            <div class="bg-primary px-6 py-4 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-black">smart_toy</span>
+                <span class="text-black font-bold text-sm tracking-tight">AGENTE ESTRATÉGICO IA</span>
+              </div>
+              <div class="flex gap-1.5">
+                <div class="size-2 rounded-full bg-black/20"></div>
+                <div class="size-2 rounded-full bg-black/20"></div>
+                <div class="size-2 rounded-full bg-black/40"></div>
+              </div>
+            </div>
+            <div class="h-[400px] p-6 flex flex-col gap-4 overflow-y-auto bg-white">
+              <div class="bg-neutral-100 p-4 rounded-xl rounded-tl-none max-w-[85%] text-neutral-800 text-sm leading-relaxed border border-neutral-200">
+                Bienvenido a Carbonell Soluciones. Soy su asistente técnico. ¿En qué etapa se encuentra su proyecto de ingeniería o desarrollo social?
+              </div>
+              <div class="bg-primary/20 p-4 rounded-xl rounded-tr-none max-w-[85%] ml-auto text-neutral-900 text-sm font-medium border border-primary/30">
+                Tengo una idea para un puente comunitario en Atlántico y necesito estructuración técnica.
+              </div>
+              <div class="bg-neutral-100 p-4 rounded-xl rounded-tl-none max-w-[85%] text-neutral-800 text-sm leading-relaxed border border-neutral-200">
+                Excelente. Para puentes comunitarios evaluamos: 1. Topografía, 2. Impacto Social, 3. Presupuesto estimado. ¿Desea que generemos un borrador de auditoría inicial?
+              </div>
+              <div class="mt-auto flex items-center gap-2 text-neutral-400 text-xs italic">
+                <span class="material-symbols-outlined text-sm">schedule</span>
+                Consultoría inicial instantánea activada
+              </div>
+            </div>
+            <div class="p-4 border-t border-neutral-100 bg-neutral-50">
+              <h3 class="text-neutral-400 text-[10px] font-bold uppercase tracking-widest mb-3 px-2">Describe tu proyecto aquí</h3>
+              <div class="flex gap-2">
+                <input class="flex-1 bg-white border border-neutral-200 rounded-lg px-4 py-2 text-neutral-800 text-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-neutral-300" placeholder="Escribe tu idea o requerimiento..." type="text"/>
+                <button class="size-10 bg-primary rounded-lg flex items-center justify-center text-black hover:scale-105 transition-transform shadow-md">
+                  <span class="material-symbols-outlined">send</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CLIENTES / CONFIANZA ========== -->
+    <section class="py-12 bg-background-light border-y border-neutral-200">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="text-center text-[10px] font-bold text-neutral-400 uppercase tracking-[0.3em] mb-8">Empresas y entidades que confían en nuestra gestión</p>
+        <div class="flex flex-wrap justify-center items-center gap-12 lg:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+          <div class="flex items-center gap-2 font-black text-xl italic text-neutral-dark whitespace-nowrap">
+            <span class="material-symbols-outlined">school</span>
+            CENTRO CONOCIMIENTO
+          </div>
+          <div class="flex items-center gap-2 font-black text-xl italic text-neutral-dark whitespace-nowrap">
+            <span class="material-symbols-outlined">account_balance</span>
+            ALCALDÍA SOLEDAD
+          </div>
+          <div class="flex items-center gap-2 font-black text-xl italic text-neutral-dark whitespace-nowrap">
+            <span class="material-symbols-outlined">business</span>
+            CÁMARA COMERCIO
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== LIDERAZGO ========== -->
+    <section class="py-24 px-6 bg-white dark:bg-neutral-dark" id="liderazgo">
+      <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+        <div class="relative w-full lg:w-1/2">
+          <div class="absolute -top-6 -left-6 size-32 border-t-4 border-l-4 border-primary"></div>
+          <div class="aspect-[4/5] bg-gray-200 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl relative group">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 text-white z-10">
+              <p class="text-primary font-bold tracking-widest text-xs uppercase mb-1">Founder &amp; CEO</p>
+              <h3 class="text-3xl font-extrabold">Ing. Jairo Carbonell</h3>
+            </div>
+            <div class="w-full h-full bg-center bg-cover" data-alt="Portrait of Ing. Jairo Carbonell in professional engineering setting" style="background-image: url('assets/Foto-Ing-Jairo-Carbonell.png')"></div>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 space-y-6">
+          <h2 class="text-4xl font-extrabold tracking-tight">Liderazgo <span class="text-primary">Híbrido</span>: Rigor y Transformación</h2>
+          <p class="text-neutral-600 dark:text-white/60 text-lg leading-relaxed">
+            El Ing. Jairo Carbonell personifica la unión entre la precisión técnica de la auditoría y la visión humana del liderazgo social. Con más de 15 años de trayectoria, ha liderado proyectos de infraestructura crítica garantizando transparencia y calidad.
+          </p>
+          <div class="grid grid-cols-2 gap-6 pt-4">
+            <div class="p-4 border-l-2 border-primary bg-primary/5">
+              <span class="material-symbols-outlined text-primary mb-2">fact_check</span>
+              <h4 class="font-bold text-lg">Auditoría Senior</h4>
+              <p class="text-sm text-neutral-500">Precisión absoluta en interventoría de calidad.</p>
+            </div>
+            <div class="p-4 border-l-2 border-primary bg-primary/5">
+              <span class="material-symbols-outlined text-primary mb-2">groups</span>
+              <h4 class="font-bold text-lg">Impacto Social</h4>
+              <p class="text-sm text-neutral-500">Transformando comunidades a través de la ingeniería.</p>
+            </div>
+          </div>
+          <button class="mt-8 flex items-center gap-3 font-bold text-primary group">
+            VER TRAYECTORIA COMPLETA
+            <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PILARES ESTRATÉGICOS ========== -->
+    <section class="py-20 px-6 bg-neutral-50 dark:bg-neutral-900 border-y border-neutral-200 dark:border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight mb-4 uppercase">Pilares <span class="text-primary">Estratégicos</span></h2>
+          <div class="h-1 w-20 bg-primary mx-auto"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="p-8 bg-white dark:bg-neutral-dark rounded-xl border border-neutral-200 dark:border-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+            <div class="size-12 bg-primary rounded flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+              <span class="material-symbols-outlined text-black font-bold">analytics</span>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Visión Técnica</h3>
+            <p class="text-neutral-500 dark:text-white/60 leading-relaxed">Análisis profundo para el lanzamiento de nuevos productos y servicios con base científica.</p>
+          </div>
+          <div class="p-8 bg-white dark:bg-neutral-dark rounded-xl border border-neutral-200 dark:border-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+            <div class="size-12 bg-primary rounded flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+              <span class="material-symbols-outlined text-black font-bold">folder_managed</span>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Rigor Administrativo</h3>
+            <p class="text-neutral-500 dark:text-white/60 leading-relaxed">Gestión documental experta e inspección detallada de proyectos bajo estándares internacionales.</p>
+          </div>
+          <div class="p-8 bg-white dark:bg-neutral-dark rounded-xl border border-neutral-200 dark:border-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+            <div class="size-12 bg-primary rounded flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+              <span class="material-symbols-outlined text-black font-bold">verified_user</span>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Garantía de Calidad</h3>
+            <p class="text-neutral-500 dark:text-white/60 leading-relaxed">Realización de auditorías de calidad a empresas e instituciones de alto perfil con resultados certificados.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CATÁLOGO DE SERVICIOS ========== -->
+    <section class="py-24 px-6 bg-background-light dark:bg-background-dark relative" id="servicios">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 space-y-4">
+          <h2 class="text-4xl lg:text-5xl font-extrabold tracking-tight uppercase">Catálogo <span class="text-primary">Maestro</span></h2>
+          <p class="text-neutral-500 max-w-2xl mx-auto">Excelencia técnica en cada fase del desarrollo corporativo y de infraestructura.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="group bg-white dark:bg-neutral-dark p-6 rounded-xl border border-neutral-200 dark:border-white/5 hover:border-primary transition-all shadow-sm flex gap-5">
+            <div class="text-4xl font-black text-primary/20 group-hover:text-primary transition-colors">01</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Acompañamiento en convocatorias</h3>
+              <p class="text-xs text-neutral-500 dark:text-white/40">Nacionales o privadas con rigor técnico.</p>
+            </div>
+          </div>
+          <div class="group bg-white dark:bg-neutral-dark p-6 rounded-xl border border-neutral-200 dark:border-white/5 hover:border-primary transition-all shadow-sm flex gap-5">
+            <div class="text-4xl font-black text-primary/20 group-hover:text-primary transition-colors">02</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Asesoramiento Integral</h3>
+              <p class="text-xs text-neutral-500 dark:text-white/40">Legal, técnico, administrativo y de mercadeo.</p>
+            </div>
+          </div>
+          <div class="group bg-white dark:bg-neutral-dark p-6 rounded-xl border border-neutral-200 dark:border-white/5 hover:border-primary transition-all shadow-sm flex gap-5">
+            <div class="text-4xl font-black text-primary/20 group-hover:text-primary transition-colors">03</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Gestión de documentos</h3>
+              <p class="text-xs text-neutral-500 dark:text-white/40">Organización y control documental experto.</p>
+            </div>
+          </div>
+          <div class="group bg-white dark:bg-neutral-dark p-6 rounded-xl border border-neutral-200 dark:border-white/5 hover:border-primary transition-all shadow-sm flex gap-5">
+            <div class="text-4xl font-black text-primary/20 group-hover:text-primary transition-colors">04</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Análisis e Investigación</h3>
+              <p class="text-xs text-neutral-500 dark:text-white/40">Mercado estratégico para lanzamientos exitosos.</p>
+            </div>
+          </div>
+          <div class="group bg-white dark:bg-neutral-dark p-6 rounded-xl border border-neutral-200 dark:border-white/5 hover:border-primary transition-all shadow-sm flex gap-5">
+            <div class="text-4xl font-black text-primary/20 group-hover:text-primary transition-colors">05</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Auditorías de Calidad</h3>
+              <p class="text-xs text-neutral-500 dark:text-white/40">Para proyectos, empresas e instituciones.</p>
+            </div>
+          </div>
+          <div class="group bg-white dark:bg-neutral-dark p-6 rounded-xl border border-neutral-200 dark:border-white/5 hover:border-primary transition-all shadow-sm flex gap-5">
+            <div class="text-4xl font-black text-primary/20 group-hover:text-primary transition-colors">06</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Planes de Negocio</h3>
+              <p class="text-xs text-neutral-500 dark:text-white/40">Formulación de proyectos de alta rentabilidad.</p>
+            </div>
+          </div>
+          <div class="group bg-white dark:bg-neutral-dark p-6 rounded-xl border border-neutral-200 dark:border-white/5 hover:border-primary transition-all shadow-sm flex gap-5">
+            <div class="text-4xl font-black text-primary/20 group-hover:text-primary transition-colors">07</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Instituciones Educativas</h3>
+              <p class="text-xs text-neutral-500 dark:text-white/40">Apertura y cumplimiento normativo integral.</p>
+            </div>
+          </div>
+          <div class="group bg-white dark:bg-neutral-dark p-6 rounded-xl border border-neutral-200 dark:border-white/5 hover:border-primary transition-all shadow-sm flex gap-5">
+            <div class="text-4xl font-black text-primary/20 group-hover:text-primary transition-colors">08</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Auditorías Integrales</h3>
+              <p class="text-xs text-neutral-500 dark:text-white/40">Control total de procesos administrativos y técnicos.</p>
+            </div>
+          </div>
+          <div class="group bg-white dark:bg-neutral-dark p-6 rounded-xl border border-neutral-200 dark:border-white/5 hover:border-primary transition-all shadow-sm flex gap-5">
+            <div class="text-4xl font-black text-primary/20 group-hover:text-primary transition-colors">09</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Inspección e Interventoría</h3>
+              <p class="text-xs text-neutral-500 dark:text-white/40">Supervisión técnica de proyectos de infraestructura.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA NORMATIVIDAD ========== -->
+    <section class="py-16 bg-primary">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <span class="material-symbols-outlined text-6xl text-black">gavel</span>
+          <p class="text-xl md:text-2xl font-extrabold text-black leading-tight text-center md:text-left">
+            Te ayudamos a presentar tus proyectos de acuerdo a la <span class="underline decoration-4 underline-offset-4">normatividad legal vigente</span>, asesorándote en la toma correcta de decisiones asertivas en toda la etapa de desarrollo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CASO DE ÉXITO: PROYECTOS ========== -->
+    <section class="py-24 px-6 bg-white dark:bg-background-dark overflow-hidden" id="proyectos">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-8">
+            <h2 class="text-4xl font-extrabold tracking-tight">Caso de Éxito: <span class="text-primary">Puentes Comunitarios</span></h2>
+            <div class="space-y-4">
+              <p class="text-neutral-600 dark:text-white/60 leading-relaxed">
+                Un proyecto emblemático que redefinió la conectividad rural. Auditamos y estructuramos puentes que no solo unen caminos, sino que fortalecen el tejido social de comunidades aisladas.
+              </p>
+              <ul class="space-y-3">
+                <li class="flex items-center gap-3 text-sm font-bold">
+                  <span class="material-symbols-outlined text-primary">check_circle</span>
+                  Cero desviaciones en auditoría técnica
+                </li>
+                <li class="flex items-center gap-3 text-sm font-bold">
+                  <span class="material-symbols-outlined text-primary">check_circle</span>
+                  100% materiales sostenibles certificados
+                </li>
+                <li class="flex items-center gap-3 text-sm font-bold">
+                  <span class="material-symbols-outlined text-primary">check_circle</span>
+                  Impacto directo en +5,000 familias
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full scale-75"></div>
+            <div class="relative bg-center bg-cover aspect-square rounded-2xl shadow-2xl border-4 border-white dark:border-neutral-800" data-alt="Community bridge engineering project aerial view" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBHCGHESluFCEXO2J_vEVgZOAjHZpK24bV9mTmMB0EI5W2cgrtKV5yjJ-Zn-ivupJQNN3Q6hStDxIQaQ18D3TqJ4bWZXJGCtwLr6SNj5UOmoa0rdBYbEP2h9Tn26fxO-RJJVk6xpj_ABAI1CmSij3hmY6TFShVbC9YFJPKdXgjPYHaAiakAUnOXWOpJ2ozBqBEkX90ze4_8kH3S02MAkD0Z7akdFWxYvA2KSu6lHLWlpwMnoAUdnJNkjOv7MyxM0ApubnBVeDr7xy0')"></div>
+            <div class="absolute -bottom-6 -right-6 bg-primary p-6 rounded-xl shadow-xl max-w-[200px]">
+              <p class="text-black font-black text-4xl mb-1">100%</p>
+              <p class="text-black/80 text-xs font-bold leading-tight">Transparencia en Ejecución de Obra</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PIE Y CONTACTO ========== -->
+    <footer class="bg-background-dark text-white pt-24 pb-12 px-6" id="contacto">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-16 pb-16 border-b border-white/10">
+        <div class="space-y-6">
+          <div class="flex items-center gap-3">
+            <img src="assets/icon-carbonell-soluciones.png" alt="Carbonell Soluciones" class="size-8 object-contain rounded"/>
+            <h1 class="text-white text-xl font-extrabold tracking-tighter uppercase">Carbonell<span class="text-primary">Soluciones</span></h1>
+          </div>
+          <p class="text-white/40 text-sm leading-relaxed">
+            Consultoría de ingeniería de élite con sede en Atlántico, Colombia. Liderando la transformación regional con rigor e inteligencia.
+          </p>
+          <div class="flex gap-4">
+            <a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" href="#">
+            <span class="material-symbols-outlined text-xl">share</span>
+          </a>
+            <a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" href="#">
+            <span class="material-symbols-outlined text-xl">account_circle</span>
+          </a>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-primary font-bold text-sm uppercase tracking-widest">Contacto Directo</h4>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary">location_on</span>
+              <p class="text-white/60 text-sm">Villa Linda Av. Murillo,<br/>Diagonal 64 #1B-67,<br/>Soledad, Atlántico</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="material-symbols-outlined text-primary">mail</span>
+              <a class="text-white/60 text-sm hover:text-primary transition-colors" href="mailto:solucionescarbonell@gmail.com">solucionescarbonell@gmail.com</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 pt-2 border-t border-white/10 mt-4">
+            <span class="material-symbols-outlined text-primary">schedule</span>
+            <div class="text-white/60 text-sm">
+              <p class="font-bold text-white">Horario de Atención:</p>
+              <p>Lunes a Viernes: 8:00 a.m. a 6:00 p.m.</p>
+              <p>Sábados: 8:00 a.m. a 12:30 p.m.</p>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-primary font-bold text-sm uppercase tracking-widest">Atención Inmediata</h4>
+          <p class="text-white/40 text-sm leading-relaxed">¿Deseas iniciar una auditoría o estructurar un proyecto hoy mismo?</p>
+          <a class="flex items-center justify-center gap-3 w-full py-4 bg-primary text-black font-extrabold rounded-lg hover:bg-white transition-all shadow-lg shadow-primary/20" href="https://wa.me/573014251319">
+            <span class="material-symbols-outlined">chat</span>
+                        WHATSAPP: +57 301 425 13 19
+          </a>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-white/20">
+        <p>© 2024 Carbonell Soluciones. Todos los derechos reservados.</p>
+        <div class="flex gap-6">
+          <a class="hover:text-primary transition-colors" href="#">Términos de Servicio</a>
+          <a class="hover:text-primary transition-colors" href="#">Privacidad de Datos</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Widget flotante WhatsApp -->
+  <a class="fixed bottom-8 right-8 z-[100] group" href="https://wa.me/573014251319">
+    <div class="absolute -inset-2 bg-primary/30 blur rounded-full animate-pulse group-hover:bg-primary/50 transition-all"></div>
+    <div class="relative bg-primary size-14 rounded-full flex items-center justify-center text-black shadow-2xl group-hover:scale-110 transition-transform">
+      <span class="material-symbols-outlined text-3xl font-bold">chat</span>
+    </div>
+    <div class="absolute bottom-16 right-0 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-black/10">
+      ¿Cómo podemos ayudarte?
+    </div>
+  </a>
+</body>
+</html>
