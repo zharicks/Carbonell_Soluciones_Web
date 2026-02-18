@@ -47,10 +47,18 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .modal-en-construccion { opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
-        .modal-en-construccion.open { opacity: 1; visibility: visible; }
-        .modal-en-construccion .modal-panel { transform: scale(0.9); transition: transform 0.3s ease-out; }
-        .modal-en-construccion.open .modal-panel { transform: scale(1); }
+        /* Estilos para contenido markdown en burbujas del chat */
+        .chat-markdown h1, .chat-markdown h2 { font-size: 1rem; font-weight: 700; margin-top: 0.75rem; margin-bottom: 0.35rem; }
+        .chat-markdown h1:first-child, .chat-markdown h2:first-child { margin-top: 0; }
+        .chat-markdown h3 { font-size: 0.9rem; font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem; }
+        .chat-markdown p { margin-bottom: 0.5rem; }
+        .chat-markdown ul, .chat-markdown ol { margin: 0.35rem 0 0.5rem 1rem; padding-left: 0.5rem; }
+        .chat-markdown li { margin-bottom: 0.2rem; }
+        .chat-markdown table { width: 100%; border-collapse: collapse; font-size: 0.75rem; margin: 0.5rem 0; }
+        .chat-markdown th, .chat-markdown td { border: 1px solid rgba(0,0,0,0.12); padding: 0.35rem 0.5rem; text-align: left; }
+        .chat-markdown th { background: rgba(0,0,0,0.06); font-weight: 600; }
+        .chat-markdown hr { border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 0.75rem 0; }
+        .chat-markdown strong { font-weight: 700; }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-neutral-dark dark:text-white transition-colors duration-300">
@@ -143,7 +151,7 @@
           <div class="space-y-4">
             <div class="flex items-start gap-4">
               <span class="material-symbols-outlined text-primary">location_on</span>
-              <p class="text-white/60 text-sm">Villa Linda Av. Murillo,<br/>Diagonal 64 #1B-67,<br/>Soledad, Atlántico</p>
+              <p class="text-white/60 text-sm">Cra. 41b #73b-82, Nte. Centro Histórico,<br/>Barranquilla, Atlántico</p>
             </div>
             <div class="flex items-center gap-4">
               <span class="material-symbols-outlined text-primary">mail</span>
@@ -178,36 +186,6 @@
     </footer>
   </main>
 
-  <!-- Modal En construcción (se muestra tras unos segundos) -->
-  <div id="modal-en-construccion" class="modal-en-construccion fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modal-en-construccion-title">
-    <div class="modal-panel w-full max-w-lg rounded-2xl overflow-hidden border-2 border-primary/40 bg-white dark:bg-neutral-dark shadow-2xl">
-      <div class="bg-primary px-6 py-4 flex items-center gap-3">
-        <span class="material-symbols-outlined text-black text-2xl">construction</span>
-        <div>
-          <h2 id="modal-en-construccion-title" class="text-black font-extrabold text-lg tracking-tight">Este chat está en construcción</h2>
-          <p class="text-black/70 text-sm font-medium">El Agente Estratégico IA se encuentra en desarrollo</p>
-        </div>
-      </div>
-      <div class="p-6 text-neutral-700 dark:text-white/80 text-sm leading-relaxed max-h-[70vh] overflow-y-auto">
-        <p class="mb-4">
-          El asistente de esta página está en construcción. Cuando esté listo, ofrecerá <strong class="text-neutral-900 dark:text-white">estructuración de proyectos</strong> y <strong class="text-neutral-900 dark:text-white">asesoría inicial</strong>: desde tu idea hasta el marco técnico y financiero.
-        </p>
-        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-3">Lo que traerá este chat</p>
-        <ul class="space-y-2 mb-4">
-          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary shrink-0 mt-0.5 text-lg">check_circle</span><span><strong>Estructuración técnica:</strong> topografía, viabilidad y alcance.</span></li>
-          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary shrink-0 mt-0.5 text-lg">check_circle</span><span><strong>Asesoría inicial:</strong> diagnóstico de etapa y próximos pasos.</span></li>
-          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary shrink-0 mt-0.5 text-lg">check_circle</span><span><strong>Impacto social y presupuesto estimado.</strong></span></li>
-          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary shrink-0 mt-0.5 text-lg">check_circle</span><span><strong>Borrador de auditoría inicial</strong> y hoja de ruta.</span></li>
-        </ul>
-        <p class="text-neutral-500 dark:text-white/50 text-xs italic mb-5">Mientras tanto, contáctanos por WhatsApp para una asesoría personalizada.</p>
-        <a href="index.html" class="inline-flex items-center justify-center gap-2 w-full py-3 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors">
-          <span class="material-symbols-outlined">home</span>
-          Volver al inicio
-        </a>
-      </div>
-    </div>
-  </div>
-
   <!-- Widget flotante WhatsApp -->
   <a class="fixed bottom-8 right-8 z-[100] group" href="https://wa.me/573014251319">
     <div class="absolute -inset-2 bg-primary/30 blur rounded-full animate-pulse group-hover:bg-primary/50 transition-all"></div>
@@ -219,36 +197,98 @@
     </div>
   </a>
 
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     (function () {
+      var WEBHOOK_URL = 'http://18.217.195.107:5678/webhook/carbonellsoluciones/chatIA';
       var input = document.getElementById('chat-input');
       var sendBtn = document.getElementById('chat-send');
       var messagesEl = document.getElementById('chat-messages');
       if (!input || !sendBtn || !messagesEl) return;
+
+      function scrollToBottom() {
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+      }
+
+      function addUserBubble(text) {
+        var bubble = document.createElement('div');
+        bubble.className = 'bg-primary/20 p-4 rounded-xl rounded-tr-none max-w-[85%] ml-auto text-neutral-900 text-sm font-medium border border-primary/30';
+        bubble.textContent = text;
+        messagesEl.appendChild(bubble);
+        scrollToBottom();
+      }
+
+      function addAgentBubble(html) {
+        var bubble = document.createElement('div');
+        bubble.className = 'bg-neutral-100 p-4 rounded-xl rounded-tl-none max-w-[95%] text-neutral-800 text-sm leading-relaxed border border-neutral-200 chat-markdown';
+        bubble.innerHTML = html;
+        messagesEl.appendChild(bubble);
+        scrollToBottom();
+      }
+
+      function addLoadingBubble() {
+        var wrap = document.createElement('div');
+        wrap.className = 'bg-neutral-100 p-4 rounded-xl rounded-tl-none max-w-[85%] text-neutral-600 text-sm border border-neutral-200';
+        wrap.id = 'chat-loading-bubble';
+        wrap.innerHTML = '<span class="inline-flex items-center gap-2"><span class="animate-pulse">Analizando tu proyecto…</span></span>';
+        messagesEl.appendChild(wrap);
+        scrollToBottom();
+      }
+
+      function removeLoadingBubble() {
+        var el = document.getElementById('chat-loading-bubble');
+        if (el) el.remove();
+      }
+
       function sendMessage() {
         var text = (input.value || '').trim();
         if (!text) return;
-        var userBubble = document.createElement('div');
-        userBubble.className = 'bg-primary/20 p-4 rounded-xl rounded-tr-none max-w-[85%] ml-auto text-neutral-900 text-sm font-medium border border-primary/30';
-        userBubble.textContent = text;
-        messagesEl.appendChild(userBubble);
+        addUserBubble(text);
         input.value = '';
-        messagesEl.scrollTop = messagesEl.scrollHeight;
-        // Aquí luego conectarás n8n; por ahora solo se muestra el mensaje del usuario.
+        addLoadingBubble();
+        sendBtn.disabled = true;
+
+        var formData = new FormData();
+        formData.append('project', text);
+
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          body: formData
+        })
+          .then(function (res) { return res.json(); })
+          .then(function (data) {
+            removeLoadingBubble();
+            var output = (data && data[0] && data[0].output) ? data[0].output : '';
+            if (output) {
+              if (typeof marked !== 'undefined') {
+                addAgentBubble(marked.parse(output));
+              } else {
+                addAgentBubble('<pre class="whitespace-pre-wrap text-xs">' + escapeHtml(output) + '</pre>');
+              }
+            } else {
+              addAgentBubble('<p>No se pudo obtener una respuesta. Intenta de nuevo o contáctanos por WhatsApp.</p>');
+            }
+          })
+          .catch(function (err) {
+            removeLoadingBubble();
+            addAgentBubble('<p>Error de conexión con el agente. Revisa tu conexión o contáctanos por WhatsApp para asesoría directa.</p>');
+          })
+          .finally(function () {
+            sendBtn.disabled = false;
+            scrollToBottom();
+          });
       }
+
+      function escapeHtml(s) {
+        var div = document.createElement('div');
+        div.textContent = s;
+        return div.innerHTML;
+      }
+
       sendBtn.addEventListener('click', sendMessage);
       input.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') { e.preventDefault(); sendMessage(); }
       });
-
-      // Modal "En construcción": se muestra tras 3 segundos; solo se sale con "Volver al inicio"
-      var modal = document.getElementById('modal-en-construccion');
-      if (modal) {
-        setTimeout(function () {
-          modal.classList.add('open');
-          document.body.style.overflow = 'hidden';
-        }, 3000);
-      }
     })();
   </script>
 </body>
