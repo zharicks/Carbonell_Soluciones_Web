@@ -237,7 +237,7 @@
         addLoadingBubble();
         sendBtn.disabled = true;
 
-        // Envío optimizado como JSON para n8n
+        // Envío como JSON para compatibilidad total con Cloudflare y n8n
         fetch(WEBHOOK_URL, {
           method: 'POST',
           headers: {
@@ -248,7 +248,7 @@
           .then(function (res) { return res.json(); })
           .then(function (data) {
             removeLoadingBubble();
-            // Manejo flexible de la respuesta de n8n
+            // Manejo de respuesta (asumiendo formato estándar de n8n)
             var responseData = Array.isArray(data) ? data[0] : data;
             var output = responseData.output || responseData.response || responseData.text || '';
             
@@ -259,13 +259,13 @@
                 addAgentBubble('<pre class="whitespace-pre-wrap text-xs">' + escapeHtml(output) + '</pre>');
               }
             } else {
-              addAgentBubble('<p>No se pudo obtener una respuesta clara. Intenta de nuevo o contáctanos por WhatsApp.</p>');
+              addAgentBubble('<p>No se pudo obtener una respuesta clara. Intenta de nuevo o contáctanos.</p>');
             }
           })
           .catch(function (err) {
             removeLoadingBubble();
             console.error('Chat Error:', err);
-            addAgentBubble('<p>Error de comunicación segura. Si acabas de configurar el dominio, espera unos minutos a que se complete la activación.</p>');
+            addAgentBubble('<p>Error de conexión segura. Por favor, verifica que Cloudflare esté en modo SSL "Full".</p>');
           })
           .finally(function () {
             sendBtn.disabled = false;
