@@ -15,8 +15,7 @@
                     colors: {
                         "primary": "#ffcc00",
                         "background-light": "#f8f8f5",
-                        "background-dark": "#121212",
-                        "neutral-dark": "#1a1a1a"
+                        "background-dark": "#121212"
                     },
                     fontFamily: { "display": ["Manrope", "sans-serif"] },
                 },
@@ -26,9 +25,8 @@
   <style>
         body { font-family: 'Manrope', sans-serif; scroll-behavior: smooth; }
         .bg-grid-pattern { background-image: radial-gradient(circle, #ffcc0022 1px, transparent 1px); background-size: 30px 30px; }
-        .chat-markdown h1, .chat-markdown h2 { font-size: 1rem; font-weight: 700; margin-top: 0.75rem; }
-        .chat-markdown p { margin-bottom: 0.5rem; }
-        .chat-markdown ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 0.5rem; }
+        .chat-markdown h1 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .chat-markdown p { margin-bottom: 0.75rem; line-height: 1.6; }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-neutral-dark dark:text-white transition-colors duration-300">
@@ -51,19 +49,19 @@
         <div id="chat-consultoria-ia" class="flex flex-col flex-1 min-h-[calc(100vh-6rem)] rounded-2xl overflow-hidden border-2 border-primary/20 shadow-xl bg-white">
           
           <div class="bg-primary px-6 py-4 flex items-center justify-between shrink-0">
-            <span class="text-black font-bold text-sm tracking-tight uppercase">Agente Estratégico IA</span>
+            <span class="text-black font-bold text-sm tracking-tight uppercase">Agente Estratégico Carbonell Soluciones</span>
           </div>
 
           <div class="flex-1 min-h-0 p-6 flex flex-col gap-4 overflow-y-auto bg-white" id="chat-messages">
             <div class="bg-neutral-100 p-4 rounded-xl rounded-tl-none max-w-[85%] text-neutral-800 text-sm border border-neutral-200">
-              Bienvenido a Carbonell Soluciones. ¿En qué etapa se encuentra su proyecto?
+              Bienvenido. Describa su proyecto para iniciar el diagnóstico técnico.
             </div>
           </div>
 
           <div class="p-4 border-t border-neutral-100 bg-neutral-50 shrink-0">
             <div class="flex gap-2">
               <input id="chat-input" class="flex-1 bg-white border border-neutral-200 rounded-lg px-4 py-2 text-neutral-800 text-sm outline-none focus:ring-1 focus:ring-primary" placeholder="Escribe tu idea aquí..." type="text"/>
-              <button id="chat-send" class="size-10 bg-primary rounded-lg flex items-center justify-center text-black hover:scale-105 transition-transform" type="button">
+              <button id="chat-send" class="size-10 bg-primary rounded-lg flex items-center justify-center text-black" type="button">
                 <span class="material-symbols-outlined">send</span>
               </button>
             </div>
@@ -76,7 +74,7 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     (function () {
-      // URL segura a través de Cloudflare
+      // URL del subdominio API configurado en Cloudflare
       const WEBHOOK_URL = 'https://api.carbonellsoluciones.com/webhook/carbonellsoluciones/chatIA';
       
       const input = document.getElementById('chat-input');
@@ -108,25 +106,23 @@
         sendBtn.disabled = true;
 
         try {
-          // Usamos x-www-form-urlencoded para evitar el pre-flight de CORS complejo
-          const params = new URLSearchParams();
-          params.append('project', text);
+          // Usamos URLSearchParams para evitar problemas de seguridad del navegador con JSON
+          const bodyParams = new URLSearchParams();
+          bodyParams.append('project', text);
 
           const response = await fetch(WEBHOOK_URL, {
             method: 'POST',
-            body: params // Enviar como formulario es más "invisible" para los bloqueos de navegador
+            body: bodyParams
           });
-
-          if (!response.ok) throw new Error('Error en servidor');
 
           const data = await response.json();
           const result = Array.isArray(data) ? data[0] : data;
-          const output = result.output || result.response || result.text || "He recibido la información. Procesando diagnóstico técnico...";
+          const output = result.output || result.response || result.text || "He recibido los datos de su proyecto.";
           
           addBubble(output, false);
         } catch (err) {
-          console.error(err);
-          addBubble('**Error de conexión técnica.** El agente en AWS no respondió. Asegúrate de que el flujo de n8n esté en modo **"Active"**.', false);
+          console.error('Error:', err);
+          addBubble('**Error de enlace:** No se pudo conectar con el agente. Verifica que el flujo de n8n esté en modo **"Active"**.', false);
         } finally {
           sendBtn.disabled = false;
         }
