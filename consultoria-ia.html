@@ -63,7 +63,6 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-neutral-dark dark:text-white transition-colors duration-300">
 
-  <!-- ========== CABECERA ========== -->
   <header class="sticky top-0 z-50 w-full bg-background-dark border-b border-white/10 px-6 lg:px-20 py-4 flex items-center justify-between">
     <a href="index.html" class="flex items-center gap-3">
       <img src="assets/icon-carbonell-soluciones.png" alt="Carbonell Soluciones" class="size-8 object-contain rounded"/>
@@ -81,12 +80,10 @@
   </header>
 
   <main class="flex flex-col min-h-[calc(100vh-5rem)]">
-    <!-- ========== CHAT CONSULTORÍA IA ========== -->
     <section class="relative flex-1 flex flex-col bg-white min-h-0 pt-4 sm:pt-6">
       <div class="absolute inset-0 bg-grid-pattern opacity-20" style="opacity: 0.1;"></div>
       <div class="w-full flex-1 flex flex-col px-4 sm:px-6 lg:px-8 relative z-10 min-h-0">
         <div id="chat-consultoria-ia" class="flex flex-col flex-1 min-h-[calc(100vh-6rem)] rounded-2xl overflow-hidden border-2 border-primary/20 shadow-xl shadow-black/5 bg-white">
-          <!-- Encabezado del chat -->
           <div class="bg-primary px-6 py-4 flex items-center justify-between rounded-t-2xl shrink-0">
             <div class="flex items-center gap-3">
               <span class="material-symbols-outlined text-black">smart_toy</span>
@@ -96,23 +93,15 @@
               <span class="material-symbols-outlined text-black">more_horiz</span>
             </button>
           </div>
-          <!-- Área de mensajes -->
           <div class="flex-1 min-h-0 p-6 flex flex-col gap-4 overflow-y-auto bg-white" id="chat-messages">
             <div class="bg-neutral-100 p-4 rounded-xl rounded-tl-none max-w-[85%] text-neutral-800 text-sm leading-relaxed border border-neutral-200">
               Bienvenido a Carbonell Soluciones. Soy su asistente técnico. ¿En qué etapa se encuentra su proyecto de ingeniería o desarrollo social?
-            </div>
-            <div class="bg-primary/20 p-4 rounded-xl rounded-tr-none max-w-[85%] ml-auto text-neutral-900 text-sm font-medium border border-primary/30">
-              Tengo una idea para un puente comunitario en Atlántico y necesito estructuración técnica.
-            </div>
-            <div class="bg-neutral-100 p-4 rounded-xl rounded-tl-none max-w-[85%] text-neutral-800 text-sm leading-relaxed border border-neutral-200">
-              Excelente. Para puentes comunitarios evaluamos: 1. Topografía, 2. Impacto Social, 3. Presupuesto estimado. ¿Desea que generemos un borrador de auditoría inicial?
             </div>
             <div class="mt-auto flex items-center gap-2 text-neutral-400 text-xs italic">
               <span class="material-symbols-outlined text-sm">schedule</span>
               Consultoría inicial instantánea activada
             </div>
           </div>
-          <!-- Pie: entrada de texto -->
           <div class="p-4 border-t border-neutral-100 bg-neutral-50 shrink-0">
             <h3 class="text-neutral-400 text-[10px] font-bold uppercase tracking-widest mb-3 px-2">Describe tu proyecto aquí</h3>
             <div class="flex gap-2">
@@ -126,7 +115,6 @@
       </div>
     </section>
 
-    <!-- ========== PIE Y CONTACTO ========== -->
     <footer class="bg-background-dark text-white pt-24 pb-12 px-6" id="contacto">
       <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-16 pb-16 border-b border-white/10">
         <div class="space-y-6">
@@ -186,7 +174,6 @@
     </footer>
   </main>
 
-  <!-- Widget flotante WhatsApp -->
   <a class="fixed bottom-8 right-8 z-[100] group" href="https://wa.me/573014251319">
     <div class="absolute -inset-2 bg-primary/30 blur rounded-full animate-pulse group-hover:bg-primary/50 transition-all"></div>
     <div class="relative bg-primary size-14 rounded-full flex items-center justify-center text-black shadow-2xl group-hover:scale-110 transition-transform">
@@ -200,7 +187,9 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     (function () {
-      var WEBHOOK_URL = 'http://18.217.195.107:5678/webhook/carbonellsoluciones/chatIA';
+      // URL corregida para usar el subdominio seguro de Cloudflare
+      var WEBHOOK_URL = 'https://api.carbonellsoluciones.com/webhook/carbonellsoluciones/chatIA';
+      
       var input = document.getElementById('chat-input');
       var sendBtn = document.getElementById('chat-send');
       var messagesEl = document.getElementById('chat-messages');
@@ -248,17 +237,21 @@
         addLoadingBubble();
         sendBtn.disabled = true;
 
-        var formData = new FormData();
-        formData.append('project', text);
-
+        // Envío optimizado como JSON para n8n
         fetch(WEBHOOK_URL, {
           method: 'POST',
-          body: formData
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ project: text })
         })
           .then(function (res) { return res.json(); })
           .then(function (data) {
             removeLoadingBubble();
-            var output = (data && data[0] && data[0].output) ? data[0].output : '';
+            // Manejo flexible de la respuesta de n8n
+            var responseData = Array.isArray(data) ? data[0] : data;
+            var output = responseData.output || responseData.response || responseData.text || '';
+            
             if (output) {
               if (typeof marked !== 'undefined') {
                 addAgentBubble(marked.parse(output));
@@ -266,12 +259,13 @@
                 addAgentBubble('<pre class="whitespace-pre-wrap text-xs">' + escapeHtml(output) + '</pre>');
               }
             } else {
-              addAgentBubble('<p>No se pudo obtener una respuesta. Intenta de nuevo o contáctanos por WhatsApp.</p>');
+              addAgentBubble('<p>No se pudo obtener una respuesta clara. Intenta de nuevo o contáctanos por WhatsApp.</p>');
             }
           })
           .catch(function (err) {
             removeLoadingBubble();
-            addAgentBubble('<p>Error de conexión con el agente. Revisa tu conexión o contáctanos por WhatsApp para asesoría directa.</p>');
+            console.error('Chat Error:', err);
+            addAgentBubble('<p>Error de comunicación segura. Si acabas de configurar el dominio, espera unos minutos a que se complete la activación.</p>');
           })
           .finally(function () {
             sendBtn.disabled = false;
