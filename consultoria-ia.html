@@ -81,7 +81,6 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     (function () {
-      // URL de producción configurada en Cloudflare
       const WEBHOOK_URL = 'https://api.carbonellsoluciones.com/webhook/carbonellsoluciones/chatIA';
       
       const input = document.getElementById('chat-input');
@@ -113,22 +112,20 @@
         sendBtn.disabled = true;
 
         try {
-          // Usamos una petición más simple para evitar problemas de CORS pre-flight si n8n no está configurado para ellos
           const response = await fetch(WEBHOOK_URL, {
             method: 'POST',
-            mode: 'cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ project: text })
           });
 
           const data = await response.json();
           const result = Array.isArray(data) ? data[0] : data;
-          const output = result.output || result.response || result.text || "He recibido tu idea. Estamos analizando la viabilidad técnica.";
+          const output = result.output || result.response || result.text || "Mensaje enviado con éxito.";
           
           addBubble(output, false);
         } catch (err) {
-          console.error('Error de conexión:', err);
-          addBubble('No he podido conectar con el cerebro del agente. Por favor, verifica que el flujo en n8n esté **Activo** y configurado para aceptar peticiones de `https://api.carbonellsoluciones.com`.', false);
+          console.error('Error:', err);
+          addBubble('Error de conexión con el agente. Intenta refrescar la página (Ctrl+F5) o verifica el modo SSL en Cloudflare.', false);
         } finally {
           sendBtn.disabled = false;
         }
