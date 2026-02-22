@@ -25,7 +25,6 @@
   <style>
         body { font-family: 'Manrope', sans-serif; scroll-behavior: smooth; }
         .bg-grid-pattern { background-image: radial-gradient(circle, #ffcc0022 1px, transparent 1px); background-size: 30px 30px; }
-        .chat-markdown h1 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; }
         .chat-markdown p { margin-bottom: 0.75rem; line-height: 1.6; }
     </style>
 </head>
@@ -37,7 +36,6 @@
       <h1 class="text-white text-xl font-extrabold tracking-tighter uppercase">Carbonell<span class="text-primary">Soluciones</span></h1>
     </a>
     <nav class="hidden md:flex items-center gap-8">
-      <a class="text-white/80 hover:text-primary text-sm font-semibold transition-colors" href="servicios.html">SERVICIOS</a>
       <a class="px-5 py-2 bg-primary text-black text-sm font-bold rounded-lg hover:bg-white transition-all" href="consultoria-ia.html">CONSULTORÍA IA</a>
     </nav>
   </header>
@@ -47,17 +45,14 @@
       <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
       <div class="w-full flex-1 flex flex-col px-4 sm:px-6 lg:px-8 relative z-10 min-h-0">
         <div id="chat-consultoria-ia" class="flex flex-col flex-1 min-h-[calc(100vh-6rem)] rounded-2xl overflow-hidden border-2 border-primary/20 shadow-xl bg-white">
-          
-          <div class="bg-primary px-6 py-4 flex items-center justify-between shrink-0">
-            <span class="text-black font-bold text-sm tracking-tight uppercase">Agente Estratégico Carbonell Soluciones</span>
+          <div class="bg-primary px-6 py-4 flex items-center shrink-0">
+            <span class="text-black font-bold text-sm tracking-tight uppercase">Agente Estratégico IA</span>
           </div>
-
           <div class="flex-1 min-h-0 p-6 flex flex-col gap-4 overflow-y-auto bg-white" id="chat-messages">
             <div class="bg-neutral-100 p-4 rounded-xl rounded-tl-none max-w-[85%] text-neutral-800 text-sm border border-neutral-200">
               Bienvenido. Describa su proyecto para iniciar el diagnóstico técnico.
             </div>
           </div>
-
           <div class="p-4 border-t border-neutral-100 bg-neutral-50 shrink-0">
             <div class="flex gap-2">
               <input id="chat-input" class="flex-1 bg-white border border-neutral-200 rounded-lg px-4 py-2 text-neutral-800 text-sm outline-none focus:ring-1 focus:ring-primary" placeholder="Escribe tu idea aquí..." type="text"/>
@@ -74,9 +69,7 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     (function () {
-      // URL del subdominio API configurado en Cloudflare
       const WEBHOOK_URL = 'https://api.carbonellsoluciones.com/webhook/carbonellsoluciones/chatIA';
-      
       const input = document.getElementById('chat-input');
       const sendBtn = document.getElementById('chat-send');
       const messagesEl = document.getElementById('chat-messages');
@@ -85,14 +78,8 @@
         const bubble = document.createElement('div');
         bubble.className = isUser 
           ? 'bg-primary/20 p-4 rounded-xl rounded-tr-none max-w-[85%] ml-auto text-neutral-900 text-sm font-medium border border-primary/30'
-          : 'bg-neutral-100 p-4 rounded-xl rounded-tl-none max-w-[95%] text-neutral-800 text-sm leading-relaxed border border-neutral-200 chat-markdown';
-        
-        if (isUser) {
-          bubble.textContent = text;
-        } else {
-          bubble.innerHTML = typeof marked !== 'undefined' ? marked.parse(text) : text;
-        }
-        
+          : 'bg-neutral-100 p-4 rounded-xl rounded-tl-none max-w-[95%] text-neutral-800 text-sm leading-relaxed border border-neutral-200';
+        bubble.innerHTML = isUser ? text : (typeof marked !== 'undefined' ? marked.parse(text) : text);
         messagesEl.appendChild(bubble);
         messagesEl.scrollTop = messagesEl.scrollHeight;
       }
@@ -106,23 +93,21 @@
         sendBtn.disabled = true;
 
         try {
-          // Usamos URLSearchParams para evitar problemas de seguridad del navegador con JSON
-          const bodyParams = new URLSearchParams();
-          bodyParams.append('project', text);
-
           const response = await fetch(WEBHOOK_URL, {
             method: 'POST',
-            body: bodyParams
+            // Enviamos como texto plano para evitar que Cloudflare o el navegador bloqueen el JSON
+            body: JSON.stringify({ project: text }),
+            headers: { 'Content-Type': 'text/plain' } 
           });
+
+          if (!response.ok) throw new Error('Status: ' + response.status);
 
           const data = await response.json();
           const result = Array.isArray(data) ? data[0] : data;
-          const output = result.output || result.response || result.text || "He recibido los datos de su proyecto.";
-          
-          addBubble(output, false);
+          addBubble(result.output || result.response || "Información recibida.", false);
         } catch (err) {
-          console.error('Error:', err);
-          addBubble('**Error de enlace:** No se pudo conectar con el agente. Verifica que el flujo de n8n esté en modo **"Active"**.', false);
+          console.error('Error de enlace:', err);
+          addBubble('**Error de enlace:** No se pudo conectar. Si cambiaste el Proxy de Cloudflare a "Gris", espera 2 minutos y vuelve a intentarlo.', false);
         } finally {
           sendBtn.disabled = false;
         }
