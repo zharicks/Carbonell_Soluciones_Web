@@ -25,8 +25,8 @@
   <style>
         body { font-family: 'Manrope', sans-serif; scroll-behavior: smooth; }
         .bg-grid-pattern { background-image: radial-gradient(circle, #ffcc0022 1px, transparent 1px); background-size: 30px 30px; }
-        .chat-markdown h1, .chat-markdown h2 { font-size: 1rem; font-weight: 700; margin-top: 0.75rem; }
-        .chat-markdown p { margin-bottom: 0.5rem; }
+        .chat-markdown h1 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; color: #000; }
+        .chat-markdown p { margin-bottom: 0.75rem; line-height: 1.6; }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-neutral-dark dark:text-white transition-colors duration-300">
@@ -49,12 +49,12 @@
         <div id="chat-consultoria-ia" class="flex flex-col flex-1 min-h-[calc(100vh-6rem)] rounded-2xl overflow-hidden border-2 border-primary/20 shadow-xl bg-white">
           
           <div class="bg-primary px-6 py-4 flex items-center justify-between shrink-0">
-            <span class="text-black font-bold text-sm tracking-tight uppercase">Agente Estratégico IA</span>
+            <span class="text-black font-bold text-sm tracking-tight uppercase italic">Agente Estratégico Carbonell Soluciones</span>
           </div>
 
           <div class="flex-1 min-h-0 p-6 flex flex-col gap-4 overflow-y-auto bg-white" id="chat-messages">
             <div class="bg-neutral-100 p-4 rounded-xl rounded-tl-none max-w-[85%] text-neutral-800 text-sm border border-neutral-200">
-              Bienvenido a Carbonell Soluciones. Describa su proyecto para iniciar la estructuración.
+              Bienvenido. Describa su proyecto para iniciar la estructuración técnica bajo estándares MGA.
             </div>
           </div>
 
@@ -74,7 +74,6 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     (function () {
-      // URL del subdominio API gestionado por Cloudflare
       const WEBHOOK_URL = 'https://api.carbonellsoluciones.com/webhook/carbonellsoluciones/chatIA';
       
       const input = document.getElementById('chat-input');
@@ -106,27 +105,20 @@
         sendBtn.disabled = true;
 
         try {
-          // Cambiamos el modo de envío para asegurar compatibilidad con el Proxy de Cloudflare
           const response = await fetch(WEBHOOK_URL, {
             method: 'POST',
-            mode: 'cors', // Habilitamos CORS explícitamente
-            headers: { 
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
+            // No enviamos headers complejos para evitar el pre-flight de CORS si no es necesario
             body: JSON.stringify({ project: text })
           });
 
-          if (!response.ok) throw new Error('Error de conexión con el agente.');
-
           const data = await response.json();
           const result = Array.isArray(data) ? data[0] : data;
-          const output = result.output || result.response || result.text || "Información recibida.";
+          const output = result.output || result.response || result.text || "He recibido los datos de su proyecto.";
           
           addBubble(output, false);
         } catch (err) {
-          console.error('Error detallado:', err);
-          addBubble('**Error de enlace:** No se pudo conectar con el agente. Verifica que en Cloudflare el registro "api" tenga la nube naranja activa y el SSL para ese subdominio sea "Flexible".', false);
+          console.error('Error de conexión:', err);
+          addBubble('**Error de enlace:** No se pudo conectar con el agente. Asegúrate de que el flujo de n8n esté **Activo** y que hayas añadido los encabezados de respuesta en el nodo Webhook.', false);
         } finally {
           sendBtn.disabled = false;
         }
